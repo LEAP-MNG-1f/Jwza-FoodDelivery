@@ -93,6 +93,8 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <PermIdentityIcon />
+          <PermIdentityIcon />
+          <PermIdentityIcon />
           <MenuItem onClick={handleCloseNavMenu}>
             <Typography sx={{ textAlign: "center" }}>Нэвтрэх</Typography>
           </MenuItem>

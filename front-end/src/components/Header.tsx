@@ -16,7 +16,6 @@ import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -25,13 +24,6 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -42,7 +34,16 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "white" }}>
+    <AppBar
+      position="static"
+      sx={{
+        bgcolor: "white",
+        height: 57,
+        display: "flex",
+        justifyItems: "center",
+        alignItems: "center",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LogoIcon />

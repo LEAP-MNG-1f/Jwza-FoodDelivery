@@ -42,13 +42,12 @@ function ResponsiveAppBar() {
         display: "flex",
         justifyItems: "center",
         alignItems: "center",
+        boxShadow: "none",
       }}
     >
-      <h1>Test 3321321</h1>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LogoIcon />
-
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button

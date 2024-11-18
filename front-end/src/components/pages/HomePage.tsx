@@ -1,3 +1,4 @@
+import { Footer } from "../Footer";
 import Header from "../Header";
 import { HeroHomePage } from "../HomePage/HeroHomePage";
 import InfoCard from "../HomePage/InfoCard";
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Header />
       <HeroHomePage />
       <InfoCard />
+      <Footer />
     </div>
   );
 }

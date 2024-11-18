@@ -10,7 +10,7 @@ export const HeroHomePage = () => {
     >
       <div className="w-[1200px] flex justify-between items-center">
         <div className="absolute flex flex-col  justify-center items-center gap-[23px] top-[276.65px]">
-          <p className="text-[55px] font-600 leading-[49.5px] w-[384px] text-white">
+          <p className="text-[55px] font-[600] leading-[49.5px] w-[384px] text-white">
             Pinecone Food delivery
           </p>
           <p className="border border-white w-[383px]"></p>

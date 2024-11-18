@@ -39,9 +39,15 @@ export const Footer = () => {
           </button>
         </div>
         <div className="flex gap-[18px] items-center">
-          <Facebook />
-          <Instagram />
-          <Twitter />
+          <button>
+            <Facebook />
+          </button>
+          <button>
+            <Instagram />
+          </button>
+          <button>
+            <Twitter />
+          </button>
         </div>
         <p className="w-full border-b border-b-white"></p>
         <div className="flex flex-col justify-center items-center gap-2">

@@ -10,13 +10,11 @@ export type FoodType = {
   price: number;
 };
 
-type FoodHomePageProps = {
+export type FoodHomePageProps = {
   foods: FoodType[];
 };
 
 export const FoodHomePage = (props: FoodHomePageProps) => {
-  console.log(props);
-
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">

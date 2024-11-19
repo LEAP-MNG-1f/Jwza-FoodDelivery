@@ -41,6 +41,7 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
                   img_url={food.img_url}
                   name={food.name}
                   price={food.price}
+                  ingredient={food.ingredient}
                 />
               );
             })}
@@ -69,6 +70,7 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
                   img_url={food.img_url}
                   name={food.name}
                   price={food.price}
+                  ingredient={food.ingredient}
                 />
               );
             })}
@@ -97,6 +99,7 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
                   img_url={food.img_url}
                   name={food.name}
                   price={food.price}
+                  ingredient={food.ingredient}
                 />
               );
             })}
@@ -123,6 +126,7 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
                   img_url={food.img_url}
                   name={food.name}
                   price={food.price}
+                  ingredient={food.ingredient}
                 />
               );
             })}

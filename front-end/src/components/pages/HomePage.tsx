@@ -1,10 +1,6 @@
 import { Footer } from "../Footer";
 import Header from "../Header";
-import {
-  FoodHomePage,
-  FoodHomePageProps,
-  FoodType,
-} from "../HomePage/BodyHomePage";
+import { FoodHomePage, FoodHomePageProps } from "../HomePage/BodyHomePage";
 import { HeroHomePage } from "../HomePage/HeroHomePage";
 import InfoCard from "../HomePage/InfoCard";
 

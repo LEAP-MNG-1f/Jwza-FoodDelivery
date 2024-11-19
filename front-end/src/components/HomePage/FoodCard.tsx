@@ -5,6 +5,8 @@ import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import { MinusIcon } from "@/svg/MinusIcon";
+import { Addicon } from "@/svg/AddIcon";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -15,7 +17,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({ img_url, name, price }: FoodType) => {
+export const FoodCard = ({ img_url, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -42,33 +44,62 @@ export const FoodCard = ({ img_url, name, price }: FoodType) => {
             {name}
           </p>
           <p className="!text-[18px] !font-[600] !leading-[27px] !text-[#18BA51] ">
-            {price}
+            {price}₮
           </p>
         </div>
       </Button>
       <BootstrapDialog
+        sx={{
+          "& .MuiDialog-paper": {
+            borderRadius: "16px",
+            maxWidth: 981,
+          },
+        }}
+        fullWidth={true}
         onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
+        // aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <div className="w-[981px] h-[564px] flex justify-between">
-          <img
-            className="w-[50%] p-8"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwcNFoNWXoJ4khYIgrYGc98xBxAbMZiz85Q&s"
-            alt=""
-          />
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
-            sx={(theme) => ({
-              position: "absolute",
-              right: 8,
-              top: 8,
-              color: theme.palette.grey[500],
-            })}
-          >
-            <CloseIcon />
-          </IconButton>
+        <div className="!w-[981px] h-[564px] flex gap-[33px] !rounded-[16px] p-8">
+          <img className="w-[500px]" src={img_url} alt="" />
+          <div className="!w-[384px]">
+            <IconButton
+              className="!p-0 !left-[365px]"
+              aria-label="close"
+              onClick={handleClose}
+            >
+              <CloseIcon />
+            </IconButton>
+            <div className="flex flex-col gap-8 mt-7">
+              <div className="flex flex-col gap-[2px]">
+                <p className="text-[28px] font-[700] leading-[33.41px]">
+                  {name}
+                </p>
+                <p className="text-[18px] font-[600] leading-[27px] text-[#18BA51]">
+                  {price}₮
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <p className="text-[18px] font-[600] leading-[27px]">Орц</p>
+                <p className="text-[16px] font-[400] leading-[19.09px] bg-[#F6F6F6] p-2 rounded-lg">
+                  {ingredient}
+                </p>
+              </div>
+
+              <p className="text-[18px] font-[600] leading-[27px]">Тоо</p>
+              <div className="flex justify-between">
+                <button>
+                  <MinusIcon />
+                </button>
+                <button>
+                  <Addicon />
+                </button>
+              </div>
+              <button className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center">
+                Сагслах
+              </button>
+            </div>
+          </div>
         </div>
       </BootstrapDialog>
     </div>

@@ -11,7 +11,7 @@ export default function Home() {
       name: "Ugluunii hool",
       img_url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWwcNFoNWXoJ4khYIgrYGc98xBxAbMZiz85Q&s",
-      ingredient: "dsd",
+      ingredient: "Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр",
       price: 1000,
     },
     {
@@ -19,7 +19,7 @@ export default function Home() {
       name: "Ugluunii hool",
       img_url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiIHO1CUN98drcLnuFJTmD3Vx1pGgf0alExg&s",
-      ingredient: "dsd",
+      ingredient: "Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр",
       price: 1000,
     },
     {
@@ -27,7 +27,7 @@ export default function Home() {
       name: "Ugluunii hool",
       img_url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQehobQBbx8nrvfZxWtzLXOneVuPCrdx2YDUg&s",
-      ingredient: "dsd",
+      ingredient: "Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр",
       price: 1000,
     },
     {
@@ -35,7 +35,7 @@ export default function Home() {
       name: "Ugluunii hool",
       img_url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGro_fmqKHFPhFVp57xdW-FzjlyLDMpSnv_w&s",
-      ingredient: "dsd",
+      ingredient: "Хулуу, төмс, лууван , сонгино, цөцгийн тос, самрын үр",
       price: 1000,
     },
   ];

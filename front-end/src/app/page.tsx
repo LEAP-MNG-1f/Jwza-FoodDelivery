@@ -42,8 +42,8 @@ export default function Home() {
 
   return (
     <div>
-      {/* <HomePage foods={MockData} /> */}
-      <MenuPage foods={MockData} />
+      <HomePage foods={MockData} />
+      {/* <MenuPage foods={MockData} /> */}
     </div>
   );
 }

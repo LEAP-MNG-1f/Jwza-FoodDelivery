@@ -2,6 +2,7 @@
 
 import HomePage from "@/components/pages/HomePage";
 import MenuPage from "@/components/pages/MenuPage";
+import OrderPage from "@/components/pages/OrderPage";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
     <div>
       <HomePage foods={MockData} />
       {/* <MenuPage foods={MockData} /> */}
+      {/* <OrderPage /> */}
     </div>
   );
 }

@@ -1,5 +1,5 @@
-import { Footer } from "../Footer";
-import Header from "../Header";
+import { Footer } from "../ui/Footer";
+import Header from "../ui/Header";
 import { FoodHomePageProps } from "../HomePage/BodyHomePage";
 import MenuBody from "../MenuPage/MenuBody";
 

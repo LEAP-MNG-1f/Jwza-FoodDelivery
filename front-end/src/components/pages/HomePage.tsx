@@ -7,7 +7,7 @@ import InfoCard from "../HomePage/InfoCard";
 export default function HomePage({ foods }: FoodHomePageProps) {
   return (
     <div>
-      <Header />
+      <Header foods={foods} />
       <HeroHomePage />
       <InfoCard />
       <FoodHomePage foods={foods} />

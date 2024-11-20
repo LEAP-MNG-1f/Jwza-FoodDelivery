@@ -7,10 +7,12 @@ import Button from "@mui/material/Button";
 import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { SagsIcon } from "@/svg/SagsIcon";
+import RightDrawer from "../order/RightDrawer";
+import { FoodHomePageProps } from "../HomePage/BodyHomePage";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 
-function Header() {
+function Header({ foods }: FoodHomePageProps) {
   return (
     <AppBar className="!bg-white !h-[57px] !flex !items-center !justify-center !shadow-none !w-full">
       <Container className="!w-[1200px] !flex !items-center !justify-between !p-0">
@@ -28,12 +30,12 @@ function Header() {
           </div>
         </div>
         <div className="!flex !gap-2">
-          <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
-            <SagsIcon />
-            <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
-              Сагс
-            </Typography>
-          </Button>
+          <div className="flex items-center">
+            <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+              <SagsIcon />
+            </Button>
+            <RightDrawer foods={foods} />
+          </div>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <PermIdentityIcon sx={{ color: "text.primary" }} />
             <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">

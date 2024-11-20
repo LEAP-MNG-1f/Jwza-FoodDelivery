@@ -1,4 +1,6 @@
 import RightDrawer from "../order/RightDrawer";
+import { Footer } from "../ui/Footer";
+import Header from "../ui/Header";
 
 const MockDataOrder = [
   {
@@ -11,5 +13,10 @@ const MockDataOrder = [
   },
 ];
 export default function OrderPage() {
-  return <RightDrawer foods={MockDataOrder} />;
+  return (
+    <div>
+      <Header foods={MockDataOrder} />
+      <Footer />
+    </div>
+  );
 }

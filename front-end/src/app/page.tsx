@@ -1,5 +1,6 @@
 "use client";
 
+import ConfirmationPage from "@/components/pages/ConfirmationPage";
 import HomePage from "@/components/pages/HomePage";
 import MenuPage from "@/components/pages/MenuPage";
 import OrderPage from "@/components/pages/OrderPage";
@@ -43,9 +44,10 @@ export default function Home() {
 
   return (
     <div>
-      <HomePage foods={MockData} />
-      <MenuPage foods={MockData} />
-      <OrderPage />
+      {/* <HomePage foods={MockData} />
+      <MenuPage foods={MockData} /> */}
+      {/* <OrderPage /> */}
+      <ConfirmationPage />
     </div>
   );
 }

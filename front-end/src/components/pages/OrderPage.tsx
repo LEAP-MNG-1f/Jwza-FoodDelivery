@@ -2,7 +2,7 @@ import RightDrawer from "../order/RightDrawer";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 
-const MockDataOrder = [
+export const MockDataOrder = [
   {
     _id: "1",
     name: "Ugluunii hool",

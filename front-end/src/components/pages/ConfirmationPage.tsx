@@ -1,14 +1,13 @@
+import { AddressInfo } from "../order/AddressInfo";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
-import MenuBody from "../MenuPage/MenuBody";
 import { MockDataOrder } from "./OrderPage";
 
-export default function MenuPage({ foods }: FoodHomePageProps) {
+export default function ConfirmationPage() {
   return (
     <div>
       <Header foods={MockDataOrder} />
-      <MenuBody foods={foods} />
+      <AddressInfo />
       <Footer />
     </div>
   );

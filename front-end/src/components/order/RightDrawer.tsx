@@ -34,7 +34,7 @@ export default function RightDrawer({ foods }: FoodHomePageProps) {
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            className="!w-[586px]"
+            className="!w-[586px] "
           >
             <div className="flex gap-[171px] items-center mt-[26px] ml-6">
               <LeftArrowIcon />

@@ -34,6 +34,7 @@ export default function RightDrawer({ foods }: FoodHomePageProps) {
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
+            className="!w-[586px]"
           >
             <div className="flex gap-[171px] items-center mt-[26px] ml-6">
               <LeftArrowIcon />
@@ -51,6 +52,17 @@ export default function RightDrawer({ foods }: FoodHomePageProps) {
                   />
                 );
               })}
+            </div>
+            <div className="w-[586px] h-[172px] px-[8] py-[30px] flex justify-center mt-[747px] gap-[10px]  border-t border-t-[#BBBECD33]">
+              <div className="w-[256px] flex flex-col">
+                <p className="text-[18px] font-[400] leading-[27px] text-[#5E6166]">
+                  Нийт төлөх дүн
+                </p>
+                <p className="text-[18px] font-[700] leading-[27px]">Тоо ₮</p>
+              </div>
+              <button className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center">
+                Захиалах
+              </button>
             </div>
           </Drawer>
         </React.Fragment>

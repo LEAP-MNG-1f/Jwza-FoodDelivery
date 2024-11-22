@@ -1,9 +1,11 @@
 "use client";
 
+import { ConditionOfUsePage } from "@/components/pages/CondiitonOfUsePage";
 import ConfirmationPage from "@/components/pages/ConfirmationPage";
 import HomePage from "@/components/pages/HomePage";
 import MenuPage from "@/components/pages/MenuPage";
 import OrderPage from "@/components/pages/OrderPage";
+import { PrivacyNoticePage } from "@/components/pages/PrivacyNotiePage";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 
 export default function Home() {
@@ -47,7 +49,9 @@ export default function Home() {
       {/* <HomePage foods={MockData} />
       <MenuPage foods={MockData} /> */}
       {/* <OrderPage /> */}
-      <ConfirmationPage />
+      {/* <ConfirmationPage /> */}
+      {/* <ConditionOfUsePage /> */}
+      <PrivacyNoticePage />
     </div>
   );
 }

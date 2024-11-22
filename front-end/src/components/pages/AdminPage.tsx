@@ -1,4 +1,4 @@
-import { AdminDashboard } from "../adminPage/AdminDashboard";
+import { AdminDashboard } from "../adminpage/AdminDashboard";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 import { MockDataOrder } from "./OrderPage";
@@ -6,7 +6,7 @@ import { MockDataOrder } from "./OrderPage";
 export const AdminPage = () => {
   return (
     <div>
-      <Header foods={MockDataOrder}/>
+      <Header foods={MockDataOrder} />
       <AdminDashboard />
       <Footer />
     </div>

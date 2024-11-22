@@ -1,15 +1,14 @@
+import { DeliveryArea } from "../ui/DeliveryArea";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
-import { FoodHomePageProps } from "../homepage/BodyHomePage";
-import MenuBody from "../MenuPage/MenuBody";
 import { MockDataOrder } from "./OrderPage";
 
-export default function MenuPage({ foods }: FoodHomePageProps) {
+export const DeliveryAreaPage = () => {
   return (
     <div>
       <Header foods={MockDataOrder} />
-      <MenuBody foods={foods} />
+      <DeliveryArea />
       <Footer />
     </div>
   );
-}
+};

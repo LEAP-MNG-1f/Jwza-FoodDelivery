@@ -3,10 +3,11 @@
 import { AdminPage } from "@/components/pages/AdminPage";
 import { ConditionOfUsePage } from "@/components/pages/CondiitonOfUsePage";
 import ConfirmationPage from "@/components/pages/ConfirmationPage";
+import { DeliveryAreaPage } from "@/components/pages/DeliveryAreaPage";
 import HomePage from "@/components/pages/HomePage";
 import MenuPage from "@/components/pages/MenuPage";
 import OrderPage from "@/components/pages/OrderPage";
-import { PrivacyNoticePage } from "@/components/pages/PrivacyNotiePage";
+import { PrivacyNoticePage } from "@/components/pages/PrivacyNoticePage";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 
 export default function Home() {
@@ -48,13 +49,13 @@ export default function Home() {
   return (
     <div>
       {/* <HomePage foods={MockData} />
-      <MenuPage foods={MockData} /> */}
-      {/* <OrderPage /> */}
-      {/* <ConfirmationPage /> */}
-      {/* <ConditionOfUsePage /> */}
-      {/* <PrivacyNoticePage /> */}
-
-      <AdminPage />
+      <MenuPage foods={MockData} />
+      <OrderPage />
+      <ConfirmationPage />
+      <ConditionOfUsePage />
+      <PrivacyNoticePage />
+      <AdminPage /> */}
+      <DeliveryAreaPage />
     </div>
   );
 }

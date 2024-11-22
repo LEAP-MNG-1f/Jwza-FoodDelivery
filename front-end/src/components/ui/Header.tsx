@@ -7,8 +7,8 @@ import Button from "@mui/material/Button";
 import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { SagsIcon } from "@/svg/SagsIcon";
-import RightDrawer from "../order/RightDrawer";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
+import RightDrawer from "../orderpage/RightDrawer";
+import { FoodHomePageProps } from "../homepage/BodyHomePage";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 

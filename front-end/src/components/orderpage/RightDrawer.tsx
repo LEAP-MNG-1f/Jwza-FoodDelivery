@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 
 import { LeftArrowIcon } from "@/svg/LeftArrowIcon";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
+import { FoodHomePageProps } from "../homepage/BodyHomePage";
 import { OrderView } from "./OrderView";
 import { Typography } from "@mui/material";
 

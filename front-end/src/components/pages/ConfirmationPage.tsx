@@ -1,5 +1,5 @@
-import { AddressInfo } from "../order/AddressInfo";
-import { OrderConfirm } from "../order/OrderConfirm";
+import { AddressInfo } from "../orderpage/AddressInfo";
+import { OrderConfirm } from "../orderpage/OrderConfirm";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 import { MockDataOrder } from "./OrderPage";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
-import { FoodCard } from "../HomePage/FoodCard";
+import { FoodHomePageProps } from "../homepage/BodyHomePage";
+import { FoodCard } from "../homepage/FoodCard";
 import { useState } from "react";
 
 export default function MenuBody({ foods }: FoodHomePageProps) {

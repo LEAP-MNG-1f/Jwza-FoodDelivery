@@ -1,6 +1,6 @@
 import { PlusIcon } from "@/svg/PlusIcon";
-import { FoodCard } from "./FoodCard";
 import { NextIcon } from "@/svg/NextIcon";
+import { FoodCard } from "./FoodCard";
 
 export type FoodType = {
   _id?: string;

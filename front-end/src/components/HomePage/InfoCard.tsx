@@ -2,7 +2,7 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { BookIcon } from "@/svg/BookIcon";
 import { ClockIcon } from "@/svg/ClockIcon";
 import { IngredientIcon } from "@/svg/IngredientIcon";

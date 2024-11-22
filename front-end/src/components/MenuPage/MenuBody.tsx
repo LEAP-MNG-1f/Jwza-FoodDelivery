@@ -1,8 +1,8 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { FoodHomePageProps } from "../HomePage/BodyHomePage";
-import { FoodCard } from "../HomePage/FoodCard";
 import { useState } from "react";
+import { FoodCard } from "../HomePage/FoodCard";
 
 export default function MenuBody({ foods }: FoodHomePageProps) {
   const [isClicked, setIsClicked] = useState(true);

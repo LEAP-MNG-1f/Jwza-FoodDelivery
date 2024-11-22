@@ -1,4 +1,3 @@
-import { FoodType } from "./BodyHomePage";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
@@ -7,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
+import { FoodType } from "./BodyHomePage";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {

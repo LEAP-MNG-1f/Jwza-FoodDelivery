@@ -1,5 +1,3 @@
-import { Typography } from "@mui/material";
-
 export const HeroHomePage = () => {
   return (
     <div

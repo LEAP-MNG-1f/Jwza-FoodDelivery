@@ -1,6 +1,6 @@
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
+import { FoodHomePageProps } from "../homepage/BodyHomePage";
 import MenuBody from "../menupage/MenuBody";
 import { MockDataOrder } from "./OrderPage";
 

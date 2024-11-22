@@ -24,7 +24,7 @@ export const DeliveryArea = () => {
             <div className="flex gap-4">
               <div className="w-[262px] flex flex-col gap-4 text-[16px] font-[400] leading-[19.09px]">
                 <p>Нархан хотхон</p>
-                <p>26-р байр</p>
+                <p>26-р байрjj</p>
                 <p>26-р байр</p>
                 <p>45-р байр</p>
                 <p>3-р байр</p>

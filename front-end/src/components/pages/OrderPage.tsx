@@ -1,4 +1,3 @@
-import RightDrawer from "../order/RightDrawer";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 

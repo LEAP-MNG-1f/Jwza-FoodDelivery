@@ -1,13 +1,13 @@
+import { DeliveryArea } from "../ui/DeliveryArea";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
-import { PrivacyNotice } from "../ui/PrivacyNotice";
 import { MockDataOrder } from "./OrderPage";
 
-export const PrivacyNoticePage = () => {
+export const DeliveryAreaPage = () => {
   return (
     <div>
       <Header foods={MockDataOrder} />
-      <PrivacyNotice />
+      <DeliveryArea />
       <Footer />
     </div>
   );

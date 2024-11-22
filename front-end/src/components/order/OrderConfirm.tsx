@@ -1,5 +1,5 @@
 import { BlueCircle } from "@/svg/BlueCircle";
-import { FoodHomePageProps, FoodType } from "../homepage/BodyHomePage";
+import { FoodHomePageProps, FoodType } from "../HomePage/BodyHomePage";
 
 export const OrderConfirm = ({ foods }: FoodHomePageProps) => {
   return (

@@ -1,6 +1,6 @@
 import { Addicon } from "@/svg/AddIcon";
 import { MinusIcon } from "@/svg/MinusIcon";
-import { FoodType } from "../homepage/BodyHomePage";
+import { FoodType } from "../HomePage/BodyHomePage";
 import { CloseIcon } from "@/svg/CloseIcon";
 
 export const OrderView = ({ img_url, name, ingredient, price }: FoodType) => {

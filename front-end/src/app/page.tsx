@@ -1,5 +1,6 @@
 "use client";
 
+import { AdminPage } from "@/components/pages/AdminPage";
 import { ConditionOfUsePage } from "@/components/pages/CondiitonOfUsePage";
 import ConfirmationPage from "@/components/pages/ConfirmationPage";
 import HomePage from "@/components/pages/HomePage";
@@ -51,7 +52,9 @@ export default function Home() {
       {/* <OrderPage /> */}
       {/* <ConfirmationPage /> */}
       {/* <ConditionOfUsePage /> */}
-      <PrivacyNoticePage />
+      {/* <PrivacyNoticePage /> */}
+
+      <AdminPage />
     </div>
   );
 }

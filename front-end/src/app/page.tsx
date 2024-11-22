@@ -53,6 +53,7 @@ export default function Home() {
       {/* <ConfirmationPage /> */}
       {/* <ConditionOfUsePage /> */}
       {/* <PrivacyNoticePage /> */}
+
       <AdminPage />
     </div>
   );

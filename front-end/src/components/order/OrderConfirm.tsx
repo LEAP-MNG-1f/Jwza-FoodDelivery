@@ -21,7 +21,10 @@ export const OrderConfirm = ({ foods }: FoodHomePageProps) => {
       <div className="w-full h-[612px] p-6 flex flex-col justify-between shadow-xl">
         {foods.map((food) => {
           return (
-            <div className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]">
+            <div
+              key={food._id}
+              className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]"
+            >
               <img className="w-[184px] h-[121px]" src={food.img_url} alt="" />
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-[2px]">

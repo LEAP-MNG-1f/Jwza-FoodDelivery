@@ -2,6 +2,7 @@ import { Facebook } from "@/svg/Facebook";
 import { Instagram } from "@/svg/Instagram";
 import { LogoWhite } from "@/svg/LogoWhite";
 import { Twitter } from "@/svg/Twitter";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -19,24 +20,39 @@ export const Footer = () => {
           </p>
         </div>
         <div className="w-full flex justify-between">
-          <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
+          <Link
+            href={"./"}
+            className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white"
+          >
             Нүүр
-          </button>
+          </Link>
           <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
             Холбоо барих
           </button>
-          <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
+          <Link
+            href={"menu"}
+            className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white"
+          >
             Хоолны цэс
-          </button>
-          <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
+          </Link>
+          <Link
+            href={"condition-of-use"}
+            className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white"
+          >
             Үйлчилгээний нөхцөл
-          </button>
-          <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
+          </Link>
+          <Link
+            href={"delivery-area"}
+            className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white"
+          >
             Хүргэлтийн бүс
-          </button>
-          <button className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white">
+          </Link>
+          <Link
+            href={"privacy-notice"}
+            className="text-[16px] font-[590] leading-[19.09px] text-white border-b border-b-white"
+          >
             Нууцлалын бодлого
-          </button>
+          </Link>
         </div>
         <div className="flex gap-[18px] items-center">
           <button>

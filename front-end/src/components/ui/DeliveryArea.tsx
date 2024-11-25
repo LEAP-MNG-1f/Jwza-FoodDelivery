@@ -17,7 +17,7 @@ export const DeliveryArea = () => {
           </p>
         </div>
         <div className="flex justify-between mt-5">
-          <div className="p-6 w-[588px] h-[388px] rounded-2xl shadow-2xl gap-4 flex flex-col">
+          <div className="p-6 w-[588px] h-[388px] rounded-2xl shadow-[0px_0px_20px_0px_rgba(0,0,0,0.05)] gap-4 flex flex-col">
             <p className="py-4 border-b border-b-[#18BA51] text-[20px] font-[590] leading-[23.87px]">
               А бүс
             </p>
@@ -42,7 +42,7 @@ export const DeliveryArea = () => {
               </div>
             </div>
           </div>
-          <div className="p-6 w-[588px] h-[388px] rounded-2xl shadow-2xl gap-4 flex flex-col">
+          <div className="p-6 w-[588px] h-[388px] rounded-2xl shadow-[0px_0px_20px_0px_rgba(0,0,0,0.05)] gap-4 flex flex-col">
             <p className="py-4 border-b border-b-[#18BA51] text-[20px] font-[590] leading-[23.87px]">
               Б бүс
             </p>

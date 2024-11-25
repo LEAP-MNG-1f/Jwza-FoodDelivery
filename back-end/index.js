@@ -2,30 +2,41 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
+import mongoose from "mongoose";
+import userRouter from "./routes/userRoute.js";
+import foodRouter from "./routes/foodRoute.js";
+import orderRouter from "./routes/orderRoute.js";
+import categoryRouter from "./routes/categoryRoute.js";
 
 const server = express();
-dotenv.config();
 const PORT = 8000;
+
+mongoose.connect(
+  "mongodb+srv://jnglobal444:Qttp2eUlSQhDPg2C@leap-jwz.puuzf.mongodb.net/food-delivery"
+);
+
 server.use(cors());
+server.use("/api", userRouter);
+server.use("/api", foodRouter);
+server.use("api", orderRouter);
+server.use("/api", categoryRouter);
 
-server.get(`/`, (request, response) => {
-  response.json(["Billy", "Dashka"]);
-});
+dotenv.config();
 
-server.post(`/assets`, async (request, response) => {
-  try {
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
-    const result = await cloudinary.uploader.upload("./assets/Soupred.png");
-    response.json(result);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-});
+// server.post(`/assets`, async (request, response) => {
+//   try {
+//     cloudinary.config({
+//       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//       api_key: process.env.CLOUDINARY_API_KEY,
+//       api_secret: process.env.CLOUDINARY_API_SECRET,
+//     });
+//     const result = await cloudinary.uploader.upload("./assets/Soupred.png");
+//     response.json(result);
+//     console.log(result);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT} sever ajillaa`);

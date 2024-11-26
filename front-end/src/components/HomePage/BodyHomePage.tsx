@@ -3,11 +3,7 @@ import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
 import { FoodsArrayProps } from "../ui/Types";
 
-export const FoodHomePage = ({ foods, categories }: FoodsArrayProps) => {
-  // const filteredArray=categories.filter((category)=>{
-  //   foods.filter((food)=> category.id==food.cate)
-  // }
-
+export const FoodHomePage = ({ foods }: FoodsArrayProps) => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
@@ -31,7 +27,7 @@ export const FoodHomePage = ({ foods, categories }: FoodsArrayProps) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -60,7 +56,7 @@ export const FoodHomePage = ({ foods, categories }: FoodsArrayProps) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -89,7 +85,7 @@ export const FoodHomePage = ({ foods, categories }: FoodsArrayProps) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -116,7 +112,7 @@ export const FoodHomePage = ({ foods, categories }: FoodsArrayProps) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.image}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}

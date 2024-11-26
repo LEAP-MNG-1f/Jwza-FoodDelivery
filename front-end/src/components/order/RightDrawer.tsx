@@ -1,15 +1,13 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-
 import { LeftArrowIcon } from "@/svg/LeftArrowIcon";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
 import { OrderView } from "./OrderView";
-import { Typography } from "@mui/material";
+import { FoodsArrayProps } from "../ui/Types";
 
 type Anchor = "right";
 
-export default function RightDrawer({ foods }: FoodHomePageProps) {
+export default function RightDrawer({ foods }: FoodsArrayProps) {
   const [state, setState] = React.useState({
     right: false,
   });
@@ -45,7 +43,7 @@ export default function RightDrawer({ foods }: FoodHomePageProps) {
                 return (
                   <OrderView
                     key={food._id}
-                    img_url={food.img_url}
+                    image={food.image}
                     price={food.price}
                     name={food.name}
                     ingredient={food.ingredient}

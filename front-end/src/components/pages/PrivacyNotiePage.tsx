@@ -6,7 +6,7 @@ import { MockDataOrder } from "./OrderPage";
 export const PrivacyNoticePage = () => {
   return (
     <div>
-      <Header foods={MockDataOrder} />
+      <Header />
       <PrivacyNotice />
       <Footer />
     </div>

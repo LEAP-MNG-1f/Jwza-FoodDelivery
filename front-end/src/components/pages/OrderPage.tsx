@@ -1,3 +1,5 @@
+"use client";
+
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 
@@ -11,10 +13,11 @@ export const MockDataOrder = [
     price: 1000,
   },
 ];
+
 export default function OrderPage() {
   return (
     <div>
-      <Header foods={MockDataOrder} />
+      <Header />
       <Footer />
     </div>
   );

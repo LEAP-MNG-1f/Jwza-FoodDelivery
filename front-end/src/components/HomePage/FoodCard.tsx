@@ -6,7 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
-import { FoodType } from "./BodyHomePage";
+import { FoodType } from "../ui/Types";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -17,7 +17,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({ img_url, name, price, ingredient }: FoodType) => {
+export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -35,7 +35,7 @@ export const FoodCard = ({ img_url, name, price, ingredient }: FoodType) => {
       >
         <img
           className="!w-[282px] !h-[186px] !rounded-[16px]"
-          src={img_url}
+          src={image}
           alt=""
         />
 
@@ -61,7 +61,7 @@ export const FoodCard = ({ img_url, name, price, ingredient }: FoodType) => {
         open={open}
       >
         <div className="!w-[981px] h-[564px] flex gap-[33px] !rounded-[16px] p-8">
-          <img className="w-[500px]" src={img_url} alt="" />
+          <img className="w-[500px]" src={image} alt="" />
           <div className="!w-[384px]">
             <IconButton
               className="!p-0 !left-[365px]"

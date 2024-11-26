@@ -12,7 +12,6 @@ export type CategoryType = {
 
 export type FoodsArrayProps = {
   foods: FoodType[];
-  categories: CategoryType[];
 };
 
 // export type CategoriesArrayProps = {

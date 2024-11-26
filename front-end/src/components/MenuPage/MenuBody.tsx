@@ -1,11 +1,11 @@
 "use client";
 import * as React from "react";
 import Button from "@mui/material/Button";
-import { FoodHomePageProps } from "../HomePage/BodyHomePage";
 import { useState } from "react";
 import { FoodCard } from "../HomePage/FoodCard";
+import { FoodsArrayProps } from "../ui/Types";
 
-export default function MenuBody({ foods }: FoodHomePageProps) {
+export default function MenuBody({ foods }: FoodsArrayProps) {
   const [isClicked, setIsClicked] = useState(true);
   const [clicked, setClicked] = useState(false);
 
@@ -64,7 +64,7 @@ export default function MenuBody({ foods }: FoodHomePageProps) {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                 />
@@ -76,7 +76,7 @@ export default function MenuBody({ foods }: FoodHomePageProps) {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                 />
@@ -88,7 +88,7 @@ export default function MenuBody({ foods }: FoodHomePageProps) {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                 />
@@ -100,13 +100,3 @@ export default function MenuBody({ foods }: FoodHomePageProps) {
     </div>
   );
 }
-
-// export const MenuBody = () => {
-//   return (
-//     <div>
-//       <button>Hello</button>
-//       <button>Hello</button>
-//       <button>Hello</button>
-//     </div>
-//   );
-// };

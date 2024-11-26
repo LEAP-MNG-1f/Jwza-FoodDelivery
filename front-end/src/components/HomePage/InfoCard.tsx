@@ -25,13 +25,13 @@ export default function InfoCard() {
     >
       <Box className="!w-[1200px] !flex !justify-between">
         <DemoPaper
-          className="!flex !flex-col !justify-center !gap-[15px]"
+          className="!flex !flex-col !justify-center !gap-[15px] !border !borrder-[#D6D8DB] !shadow-[4px_4px_12px_0px_rgba(0,0,0,0.10)]"
           square
         >
           <div className="w-[60px] h-[60px] flex justify-center items-center">
             <BookIcon />
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1 ">
             <p className="text-[18px] font-[700] leading-[27px]">
               Хүргэлтийн төлөв хянах
             </p>
@@ -41,7 +41,10 @@ export default function InfoCard() {
             </p>
           </div>
         </DemoPaper>
-        <DemoPaper className="!flex flex-col justify-center gap-[15px]" square>
+        <DemoPaper
+          className="!flex !flex-col !justify-center !gap-[15px] !border !borrder-[#D6D8DB] !shadow-[4px_4px_12px_0px_rgba(0,0,0,0.10)]"
+          square
+        >
           <div className="w-[60px] h-[60px] flex justify-center items-center">
             <ClockIcon />
           </div>
@@ -55,7 +58,10 @@ export default function InfoCard() {
             </p>
           </div>
         </DemoPaper>
-        <DemoPaper className="!flex flex-col justify-center gap-[15px]" square>
+        <DemoPaper
+          className="!flex !flex-col !justify-center !gap-[15px] !border !borrder-[#D6D8DB] !shadow-[4px_4px_12px_0px_rgba(0,0,0,0.10)]"
+          square
+        >
           <div className="w-[60px] h-[60px] flex justify-center items-center">
             <IngredientIcon />
           </div>
@@ -69,7 +75,10 @@ export default function InfoCard() {
             </p>
           </div>
         </DemoPaper>
-        <DemoPaper className="!flex flex-col justify-center gap-[15px]" square>
+        <DemoPaper
+          className="!flex !flex-col !justify-center !gap-[15px] !border !borrder-[#D6D8DB] !shadow-[4px_4px_12px_0px_rgba(0,0,0,0.10)]"
+          square
+        >
           <div className="w-[60px] h-[60px] flex justify-center items-center">
             <BookIcon />
           </div>

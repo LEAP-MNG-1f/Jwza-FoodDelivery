@@ -7,7 +7,7 @@ import { SignUp } from "../signup/SignUp";
 export const SignUpPage = () => {
   return (
     <div>
-      <Header foods={MockDataOrder} />
+      <Header />
       <SignUp />
       <Footer />
     </div>

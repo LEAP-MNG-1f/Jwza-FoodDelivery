@@ -1,13 +1,14 @@
 import { Addicon } from "@/svg/AddIcon";
 import { MinusIcon } from "@/svg/MinusIcon";
-import { FoodType } from "../HomePage/BodyHomePage";
-import { CloseIcon } from "@/svg/CloseIcon";
 
-export const OrderView = ({ img_url, name, ingredient, price }: FoodType) => {
+import { CloseIcon } from "@/svg/CloseIcon";
+import { FoodType } from "../ui/Types";
+
+export const OrderView = ({ image, name, ingredient, price }: FoodType) => {
   return (
     <div className="w-[538px] h-[230px] p-6 ">
       <div className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]">
-        <img className="w-[245px]" src={img_url} alt="" />
+        <img className="w-[245px]" src={image} alt="" />
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <div className="flex flex-col gap-[2px]">

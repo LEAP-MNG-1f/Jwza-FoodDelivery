@@ -6,7 +6,7 @@ import { Login } from "../login/Login";
 export const LoginPage = () => {
   return (
     <div>
-      <Header foods={MockDataOrder} />
+      <Header />
       <Login />
       <Footer />
     </div>

@@ -1,7 +1,8 @@
 import { BlueCircle } from "@/svg/BlueCircle";
-import { FoodHomePageProps, FoodType } from "../HomePage/BodyHomePage";
+import {} from "../HomePage/BodyHomePage";
+import { FoodsArrayProps } from "../ui/Types";
 
-export const OrderConfirm = ({ foods }: FoodHomePageProps) => {
+export const OrderConfirm = ({ foods }: FoodsArrayProps) => {
   return (
     <div className="w-[432px] flex flex-col  gap-[15px]">
       <div className="w-full h-[100px] flex gap-4 px-6 py-4">
@@ -22,7 +23,7 @@ export const OrderConfirm = ({ foods }: FoodHomePageProps) => {
         {foods.map((food) => {
           return (
             <div className="flex gap-4 p-4 border-t border-t-[#D6D8DB] border-b border-b-[#D6D8DB]">
-              <img className="w-[184px] h-[121px]" src={food.img_url} alt="" />
+              <img className="w-[184px] h-[121px]" src={food.image} alt="" />
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-[2px]">
                   <p className="text-[18px] font-[600] leading-[27px]">

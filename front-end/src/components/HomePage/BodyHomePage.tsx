@@ -1,20 +1,9 @@
 import { PlusIcon } from "@/svg/PlusIcon";
 import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
+import { FoodsArrayProps } from "../ui/Types";
 
-export type FoodType = {
-  _id?: string;
-  name: string;
-  img_url: string;
-  ingredient?: string;
-  price: number;
-};
-
-export type FoodHomePageProps = {
-  foods: FoodType[];
-};
-
-export const FoodHomePage = (props: FoodHomePageProps) => {
+export const FoodHomePage = ({ foods }: FoodsArrayProps) => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
@@ -34,11 +23,11 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
             </button>
           </div>
           <div className="flex justify-between">
-            {props.foods.map((food) => {
+            {foods.map((food) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -63,11 +52,11 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
             </button>
           </div>
           <div className="flex justify-between">
-            {props.foods.map((food) => {
+            {foods.map((food) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -92,11 +81,11 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
             </button>
           </div>
           <div className="flex justify-between">
-            {props.foods.map((food) => {
+            {foods.map((food) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}
@@ -119,11 +108,11 @@ export const FoodHomePage = (props: FoodHomePageProps) => {
             </button>
           </div>
           <div className="flex justify-between">
-            {props.foods.map((food) => {
+            {foods.map((food) => {
               return (
                 <FoodCard
                   key={food._id}
-                  img_url={food.img_url}
+                  image={food.image}
                   name={food.name}
                   price={food.price}
                   ingredient={food.ingredient}

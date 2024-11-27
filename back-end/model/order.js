@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  foods: [
+  foodIds: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Food",

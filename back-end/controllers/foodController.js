@@ -16,7 +16,7 @@ const createFood = async (request, response) => {
   });
 };
 const getAllFoods = async (request, response) => {
-  const result = await Food.find();
+  const result = await Food.find().populate("categoryId");
 
   response.json({
     success: true,

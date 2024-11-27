@@ -1,8 +1,8 @@
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
-import { FoodHomePage } from "../HomePage/BodyHomePage";
-import { HeroHomePage } from "../HomePage/HeroHomePage";
-import InfoCard from "../HomePage/InfoCard";
+import { FoodHomePage } from "../homepage/BodyHomePage";
+import { HeroHomePage } from "../homepage/HeroHomePage";
+import InfoCard from "../homepage/InfoCard";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useEffect, useState } from "react";
 

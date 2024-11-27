@@ -3,7 +3,7 @@ import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
 import { FoodsArrayProps } from "../ui/Types";
 
-export const FoodHomePage = ({ foods }: FoodsArrayProps) => {
+export const FoodHomePage = ({ foods, breakfast }: FoodsArrayProps) => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
@@ -23,7 +23,7 @@ export const FoodHomePage = ({ foods }: FoodsArrayProps) => {
             </button>
           </div>
           <div className="flex justify-between">
-            {foods.map((food) => {
+            {breakfast.map((food) => {
               return (
                 <FoodCard
                   key={food._id}

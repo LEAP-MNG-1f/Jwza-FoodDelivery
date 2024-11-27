@@ -5,9 +5,25 @@ import { HeroHomePage } from "../HomePage/HeroHomePage";
 import InfoCard from "../HomePage/InfoCard";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useEffect, useState } from "react";
+import { FoodType } from "../ui/Types";
 
 export default function HomePage() {
-  const [foods, setFoods] = useState([]);
+  const [foods, setFoods] = useState<FoodType[]>([]);
+
+  const breakfast = foods.filter((food) => {
+    return food.categoryId?.name === "Breakfest";
+  });
+  console.log(breakfast);
+
+  const soup = foods.filter((food) => {
+    return food.categoryId?.name === "Soup";
+  });
+  const mainCourse = foods.filter((food) => {
+    return food.categoryId?.name === "Main Course";
+  });
+  const dessert = foods.filter((food) => {
+    return food.categoryId?.name === "Dessert";
+  });
 
   const fetchFoods = async () => {
     try {
@@ -29,7 +45,7 @@ export default function HomePage() {
       <Header />
       <HeroHomePage />
       <InfoCard />
-      <FoodHomePage foods={foods} />
+      <FoodHomePage foods={foods} breakfast={breakfast} />
       <Footer />
     </div>
   );

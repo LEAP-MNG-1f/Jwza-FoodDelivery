@@ -2,7 +2,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { FoodCard } from "../HomePage/FoodCard";
+import { FoodCard } from "../homepage/FoodCard";
 import { FoodsArrayProps } from "../ui/Types";
 
 export default function MenuBody({ foods }: FoodsArrayProps) {

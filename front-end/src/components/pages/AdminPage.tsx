@@ -1,5 +1,5 @@
 "use client";
-import { AdminDashboard } from "../adminPage/AdminDashboard";
+import { AdminDashboard } from "../adminpage/AdminDashboard";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 

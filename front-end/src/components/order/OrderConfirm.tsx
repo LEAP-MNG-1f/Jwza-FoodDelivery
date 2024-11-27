@@ -1,5 +1,5 @@
 import { BlueCircle } from "@/svg/BlueCircle";
-import {} from "../HomePage/BodyHomePage";
+import {} from "../homepage/BodyHomePage";
 import { FoodsArrayProps } from "../ui/Types";
 
 export const OrderConfirm = ({ foods }: FoodsArrayProps) => {

@@ -8,15 +8,17 @@ const orderSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+    required: true,
   },
   orderNumber: {
     type: Number,
     required: true,
   },
-  foods: [
+  foodIds: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Food",
+      required: true,
     },
   ],
   totalPrice: {
@@ -27,10 +29,11 @@ const orderSchema = new mongoose.Schema({
     type: String,
     enum: processEnum,
     default: "Progress",
+    required: true,
   },
   createdAt: {
     type: Date,
-    deafault: () => Date.now(),
+    default: () => Date.now(),
     immutable: true,
   },
   district: {

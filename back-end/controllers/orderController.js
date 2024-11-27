@@ -9,7 +9,7 @@ const createOrder = async (request, response) => {
   });
 };
 const getAllOrders = async (request, response) => {
-  const result = await Order.find().populate("userId", "foods");
+  const result = await Order.find().populate("userId").populate("foodIds");
 
   response.json({
     success: true,

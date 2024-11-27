@@ -29,7 +29,21 @@ export default function HomePage() {
       <Header />
       <HeroHomePage />
       <InfoCard />
-      <FoodHomePage foods={foods} />
+      <FoodHomePage
+        foodsData={foods}
+        item={{
+          catgeory: {
+            _id: "",
+            name: "",
+          },
+          categoryId: "",
+          image: "",
+          ingredient: "",
+          name: "",
+          price: 0,
+          _id: "",
+        }}
+      />
       <Footer />
     </div>
   );

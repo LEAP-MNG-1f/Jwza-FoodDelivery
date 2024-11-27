@@ -16,11 +16,28 @@ const createFood = async (request, response) => {
   });
 };
 const getAllFoods = async (request, response) => {
-  const result = await Food.find().populate("categoryId");
+  const groupedFood = await Food.aggregate([
+    {
+      $lookup: {
+        from: "categories", // Assuming your categories collection is named 'categories'
+        localField: "categoryId",
+        foreignField: "_id",
+        as: "category",
+      },
+    },
+    { $unwind: "$category" },
+    {
+      $group: {
+        _id: "$category.name",
+        items: { $push: "$$ROOT" },
+      },
+    },
+  ]);
+  console.log(groupedFood);
 
   response.json({
     success: true,
-    data: result,
+    data: groupedFood,
   });
 };
 const deleteFood = async (request, response) => {

@@ -6,7 +6,7 @@ const processEnum = {
 
 const orderSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "User",
     required: true,
   },
@@ -16,7 +16,7 @@ const orderSchema = new mongoose.Schema({
   },
   foodIds: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.SchemaTypes.ObjectId,
       ref: "Food",
       required: true,
     },
@@ -40,14 +40,14 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Khoroo: {
+  khoroo: {
     type: String,
     required: true,
   },
-  Apartment: {
+  apartment: {
     type: String,
     required: true,
   },
 });
 
-export const Order = new mongoose.model("Order", orderSchema);
+export const Order = mongoose.model("Order", orderSchema);

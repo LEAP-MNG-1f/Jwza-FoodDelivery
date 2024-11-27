@@ -18,10 +18,10 @@ const foodSchema = new mongoose.Schema({
     required: true,
   },
   categoryId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.SchemaTypes.ObjectId,
     ref: "Category",
     required: true,
   },
 });
 
-export const Food = new mongoose.model("Food", foodSchema);
+export const Food = mongoose.model("Food", foodSchema);

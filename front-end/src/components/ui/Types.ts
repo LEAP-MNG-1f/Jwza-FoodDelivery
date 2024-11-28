@@ -10,7 +10,7 @@ export type FoodsArrayProps = {
 };
 
 export type CategoryType = {
-  _id: string;
+  _id?: string;
   name: string;
 };
 
@@ -29,7 +29,16 @@ export type FilteredItems = {
   _id: string;
 };
 
-export type FilteredArray = {
+export type THomePage = {
   foodsData: FilteredObject[];
   item: FilteredItems;
+};
+
+export type TMenuPage = {
+  foods: FoodType[];
+  categories: CategoryType[];
+  setSelectedCategory: () => void;
+  handleSelectedCategory: (catgeory: string) => void;
+  categorizedFoods: FilteredItems[];
+  selectedCategory: string;
 };

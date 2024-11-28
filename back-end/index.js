@@ -7,9 +7,11 @@ import userRouter from "./routes/userRoute.js";
 import foodRouter from "./routes/foodRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import categoryRouter from "./routes/categoryRoute.js";
+import bodyParser from "body-parser";
 
 const server = express();
 const PORT = 8000;
+server.use(bodyParser.json());
 
 mongoose.connect(
   "mongodb+srv://jnglobal444:Qttp2eUlSQhDPg2C@leap-jwz.puuzf.mongodb.net/food-delivery"

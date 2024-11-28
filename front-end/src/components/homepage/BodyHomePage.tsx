@@ -1,11 +1,9 @@
 import { PlusIcon } from "@/svg/PlusIcon";
 import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
-import { FilteredArray } from "../ui/Types";
+import { THomePage } from "../ui/Types";
 
-export const FoodHomePage = ({ foodsData }: FilteredArray) => {
-  console.log(foodsData);
-
+export const FoodHomePage = ({ foodsData }: THomePage) => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">

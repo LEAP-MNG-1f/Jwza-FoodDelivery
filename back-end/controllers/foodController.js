@@ -33,13 +33,29 @@ const getAllFoods = async (request, response) => {
       },
     },
   ]);
-  console.log(groupedFood);
 
   response.json({
     success: true,
     data: groupedFood,
   });
 };
+
+const getCategorizedFoods = async (request, response) => {
+  const { selectedCategory } = request.query;
+  const result = await Food.find().populate("categoryId");
+
+  const categorizedFoods = result.filter((foods) => {
+    if (foods?.categoryId.name === selectedCategory) {
+      return foods;
+    }
+  });
+
+  response.json({
+    success: true,
+    data: categorizedFoods,
+  });
+};
+
 const deleteFood = async (request, response) => {
   const result = await Food.findByIdAndRemove({
     _id: "",
@@ -61,4 +77,4 @@ const updateFood = async (request, response) => {
   });
 };
 
-export { getAllFoods, createFood, deleteFood, updateFood };
+export { getAllFoods, createFood, deleteFood, updateFood, getCategorizedFoods };

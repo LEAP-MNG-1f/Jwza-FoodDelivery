@@ -5,9 +5,23 @@ import { HeroHomePage } from "../homepage/HeroHomePage";
 import InfoCard from "../homepage/InfoCard";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useEffect, useState } from "react";
+import { FoodType } from "../ui/Types";
+
+// type CartParamType = {
+//   id: string
+// }
 
 export default function HomePage() {
   const [foods, setFoods] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+  const [cart, setCart] = useState<FoodType[]>([]);
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const decreaseQuantity = () => {
+    setQuantity(quantity - 1);
+  };
 
   const fetchFoods = async () => {
     try {
@@ -43,6 +57,9 @@ export default function HomePage() {
           price: 0,
           _id: "",
         }}
+        increaseQuantity={increaseQuantity}
+        decreaseQuantity={decreaseQuantity}
+        quantity={quantity}
       />
       <Footer />
     </div>

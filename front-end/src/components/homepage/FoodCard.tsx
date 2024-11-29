@@ -17,7 +17,16 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
+export const FoodCard = ({
+  _id,
+  image,
+  name,
+  price,
+  ingredient,
+  quantity,
+  increaseQuantity,
+  decreaseQuantity,
+}: FoodType) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -88,10 +97,11 @@ export const FoodCard = ({ image, name, price, ingredient }: FoodType) => {
 
               <p className="text-[18px] font-[600] leading-[27px]">Тоо</p>
               <div className="flex justify-between">
-                <button>
+                <button onClick={decreaseQuantity}>
                   <MinusIcon />
                 </button>
-                <button>
+                <p>{quantity}</p>
+                <button onClick={increaseQuantity}>
                   <Addicon />
                 </button>
               </div>

@@ -3,7 +3,14 @@ import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
 import { THomePage } from "../ui/Types";
 
-export const FoodHomePage = ({ foodsData }: THomePage) => {
+export const FoodHomePage = ({
+  foodsData,
+  increaseQuantity,
+  quantity,
+  decreaseQuantity,
+}: THomePage) => {
+  console.log(foodsData);
+
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
@@ -29,10 +36,14 @@ export const FoodHomePage = ({ foodsData }: THomePage) => {
                   return (
                     <FoodCard
                       key={item._id}
+                      _id={item._id}
                       image={item.image}
                       name={item.name}
                       price={item.price}
                       ingredient={item.ingredient}
+                      quantity={quantity}
+                      increaseQuantity={increaseQuantity}
+                      decreaseQuantity={decreaseQuantity}
                     />
                   );
                 })}

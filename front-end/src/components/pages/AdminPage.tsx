@@ -1,14 +1,13 @@
 "use client";
-import { AdminDashboard } from "../adminpage/AdminDashboard";
-import { Footer } from "../ui/Footer";
-import Header from "../ui/Header";
+
+import { AdminMain } from "../adminpage/AdminMain";
+import HeaderAdmin from "../adminpage/Header";
 
 export const AdminPage = () => {
   return (
     <div>
-      <Header />
-      <AdminDashboard />
-      <Footer />
+      <HeaderAdmin />
+      <AdminMain />
     </div>
   );
 };

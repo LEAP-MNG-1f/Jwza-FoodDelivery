@@ -2,8 +2,8 @@ import { ThreeDotsIcon } from "@/svg/ThreeDotsIcon";
 
 export const AdminDashboard = () => {
   return (
-    <div className="w-full flex justify-center mt-[89px] bg-[#F7F7F8]">
-      <div className="w-[1024px] rounded-xl border border-[#ECEDF0]">
+    <div className="w-full h-[1200px] flex justify-center mt-[89px] bg-[#F7F7F8] ">
+      <div className="w-[1024px]  rounded-xl border border-[#ECEDF0] mt-[30px]">
         <div className="w-[1024px] h-[76px]  bg-white rounded-t-xl">
           <p className="h-[56px] text-[20px]  font-[700] leading-[28px] px-5 pt-6">
             Admin dashboard

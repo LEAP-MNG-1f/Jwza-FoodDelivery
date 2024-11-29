@@ -4,6 +4,10 @@ export type FoodType = {
   image: string;
   ingredient?: string;
   price: number;
+  quantity?: number;
+  count?: number;
+  increaseQuantity?: () => void;
+  decreaseQuantity?: () => void;
 };
 export type FoodsArrayProps = {
   foods: FoodType[];
@@ -32,6 +36,9 @@ export type FilteredItems = {
 export type THomePage = {
   foodsData: FilteredObject[];
   item: FilteredItems;
+  increaseQuantity: () => void;
+  decreaseQuantity: () => void;
+  quantity: number;
 };
 
 export type TMenuPage = {

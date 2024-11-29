@@ -4,8 +4,6 @@ import { ConditionOfUse } from "../ui/ConditionOfUse";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 
-import { BACKEND_ENDPOINT } from "@/constants/constant";
-
 export const ConditionOfUsePage = () => {
   return (
     <div>

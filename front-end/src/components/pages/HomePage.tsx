@@ -7,10 +7,6 @@ import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useEffect, useState } from "react";
 import { FoodType } from "../ui/Types";
 
-// type CartParamType = {
-//   id: string
-// }
-
 export default function HomePage() {
   const [foods, setFoods] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -20,7 +16,9 @@ export default function HomePage() {
     setQuantity(quantity + 1);
   };
   const decreaseQuantity = () => {
-    setQuantity(quantity - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
   };
 
   const fetchFoods = async () => {

@@ -1,15 +1,15 @@
 import { PlusIcon } from "@/svg/PlusIcon";
 import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
-import { THomePage } from "../ui/Types";
 import { useFoodContext } from "../context/DataContext";
+import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
 
-export const FoodHomePage = ({ foodsData }: THomePage) => {
-  const { quantity, increaseQuantity, decreaseQuantity } = useFoodContext();
+export const FoodHomePage = () => {
+  const { categorizedFoods } = useCategorizedFoodContext();
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
-        {foodsData.map((food) => {
+        {categorizedFoods.map((food) => {
           return (
             <div key={food._id} className="flex flex-col gap-6">
               <div className="flex justify-between items-center">
@@ -27,7 +27,7 @@ export const FoodHomePage = ({ foodsData }: THomePage) => {
                 </button>
               </div>
               <div className="flex justify-between">
-                {food.items.slice(0, 4).map((item) => {
+                {food?.items?.slice(0, 4).map((item) => {
                   return (
                     <FoodCard
                       key={item._id}
@@ -36,9 +36,6 @@ export const FoodHomePage = ({ foodsData }: THomePage) => {
                       name={item.name}
                       price={item.price}
                       ingredient={item.ingredient}
-                      quantity={quantity}
-                      increaseQuantity={increaseQuantity}
-                      decreaseQuantity={decreaseQuantity}
                     />
                   );
                 })}

@@ -2,15 +2,10 @@ import { PlusIcon } from "@/svg/PlusIcon";
 import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
 import { THomePage } from "../ui/Types";
+import { useFoodContext } from "../context/DataContext";
 
-export const FoodHomePage = ({
-  foodsData,
-  increaseQuantity,
-  quantity,
-  decreaseQuantity,
-}: THomePage) => {
-  console.log(foodsData);
-
+export const FoodHomePage = ({ foodsData }: THomePage) => {
+  const { quantity, increaseQuantity, decreaseQuantity } = useFoodContext();
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">

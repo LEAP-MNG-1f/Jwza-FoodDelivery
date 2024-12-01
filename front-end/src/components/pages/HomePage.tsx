@@ -9,17 +9,6 @@ import { FoodType } from "../ui/Types";
 
 export default function HomePage() {
   const [foods, setFoods] = useState([]);
-  const [quantity, setQuantity] = useState(1);
-  const [cart, setCart] = useState<FoodType[]>([]);
-
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
-  };
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
 
   const fetchFoods = async () => {
     try {
@@ -55,9 +44,6 @@ export default function HomePage() {
           price: 0,
           _id: "",
         }}
-        increaseQuantity={increaseQuantity}
-        decreaseQuantity={decreaseQuantity}
-        quantity={quantity}
       />
       <Footer />
     </div>

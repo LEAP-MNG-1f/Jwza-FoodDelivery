@@ -7,18 +7,46 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TCreateNewCategory } from "./AdminMain";
+import { BACKEND_ENDPOINT } from "@/constants/constant";
 
-export default function CreateCategoryButton() {
+export default function CreateCategoryButton({
+  createNewCategory,
+  newCategory,
+  setCategories,
+}: TCreateNewCategory) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleClose = () => {};
+
+  const addCategory = async () => {
+    try {
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ newCategory }),
+      };
+      const response = await fetch(
+        `${BACKEND_ENDPOINT}/api/categories`,
+        options
+      );
+      const data = await response.json();
+      if (data.success) {
+        setCategories((prevCategories) => [...prevCategories, ...data?.data]);
+      }
+
+      setOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -40,8 +68,8 @@ export default function CreateCategoryButton() {
         }}
         open={open}
         onClose={handleClose}
-        // aria-labelledby="alert-dialog-title"
-        // aria-describedby="alert-dialog-description"
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
       >
         <div className="flex gap-[100px] items-center px-6 py-4">
           <IconButton className="!p-0" aria-label="close" onClick={handleClose}>
@@ -56,6 +84,7 @@ export default function CreateCategoryButton() {
             Category name
           </DialogContentText>
           <input
+            onChange={createNewCategory}
             className="w-full rounded-lg px-3 py-4 bg-[#F4F4F4] mt-2"
             type="text"
             placeholder="Placeholder"
@@ -70,7 +99,7 @@ export default function CreateCategoryButton() {
           </Button>
           <Button
             className="!px-4 !py-[10px] !text-[16px] !font-[700] !leading-[20px] !rounded-[4px] !bg-[#393939] !text-[#FFFFFF]"
-            onClick={handleClose}
+            onClick={addCategory}
             autoFocus
           >
             Continue

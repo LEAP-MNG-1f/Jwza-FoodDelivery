@@ -16,6 +16,7 @@ export type FoodsArrayProps = {
 export type CategoryType = {
   _id?: string;
   name: string;
+  _v?: number;
 };
 
 export type FilteredObject = {
@@ -48,4 +49,31 @@ export type TMenuPage = {
   handleSelectedCategory: (catgeory: string) => void;
   categorizedFoods: FilteredItems[];
   selectedCategory: string;
+};
+
+export type TFoods = {
+  _id?: string;
+  price: string;
+  name: string;
+  ingredient: string;
+  image: string;
+  _v?: number;
+};
+export type TCategoryId = {
+  _id: string;
+  name: string;
+  _v?: number;
+};
+
+export type TMenuContext = TFoods & {
+  categoryId: TCategoryId;
+};
+
+export type TMenuProps = {
+  categories: CategoryType[];
+  setSelectedCategory: () => void;
+  handleSelectedCategory: (catgeory: string) => void;
+  categorizedFoods: FilteredItems[];
+  selectedCategory: string;
+  createNewCategory: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };

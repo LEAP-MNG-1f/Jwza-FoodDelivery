@@ -9,6 +9,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
+import { TMenuProps } from "../ui/Types";
 
 export default function CreateFoodButton() {
   const [open, setOpen] = useState(false);

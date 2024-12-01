@@ -7,6 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
 import { FoodType } from "../ui/Types";
+import { useFoodContext } from "../context/DataContext";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -17,16 +18,10 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({
-  _id,
-  image,
-  name,
-  price,
-  ingredient,
-  quantity,
-  increaseQuantity,
-  decreaseQuantity,
-}: FoodType) => {
+export const FoodCard = ({ _id, image, name, price, ingredient }: FoodType) => {
+  console.log(ingredient);
+
+  const { quantity, increaseQuantity, decreaseQuantity } = useFoodContext();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

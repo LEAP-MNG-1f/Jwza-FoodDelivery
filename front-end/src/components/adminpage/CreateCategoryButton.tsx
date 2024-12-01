@@ -1,4 +1,4 @@
-// import * as React from "react";
+"use client";
 import { CloseIcon } from "@/svg/CloseIcon";
 import { PlusIconAdmin } from "@/svg/PlusIconAdmin";
 import { Box, IconButton } from "@mui/material";
@@ -7,15 +7,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-import { useEffect, useState } from "react";
-import { TCreateNewCategory } from "./AdminMain";
+import { useState } from "react";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
+import { useFoodContext } from "../context/DataContext";
 
-export default function CreateCategoryButton({
-  createNewCategory,
-  newCategory,
-  setCategories,
-}: TCreateNewCategory) {
+export default function CreateCategoryButton() {
+  const { newCategory, createNewCategory, setCategories } = useFoodContext();
+
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {

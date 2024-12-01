@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { CloseIcon } from "@/svg/CloseIcon";
 import { PlusIconAdmin } from "@/svg/PlusIconAdmin";
 import { Box, IconButton } from "@mui/material";
@@ -9,7 +8,6 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
-import { TMenuProps } from "../ui/Types";
 
 export default function CreateFoodButton() {
   const [open, setOpen] = useState(false);

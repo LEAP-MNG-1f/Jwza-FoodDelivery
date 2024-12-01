@@ -1,7 +1,6 @@
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 import MenuBody from "../menupage/MenuBody";
-import { MockDataOrder } from "./OrderPage";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { SetStateAction, useEffect, useState } from "react";
 

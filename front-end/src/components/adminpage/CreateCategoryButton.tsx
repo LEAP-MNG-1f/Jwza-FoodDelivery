@@ -37,7 +37,7 @@ export default function CreateCategoryButton() {
         options
       );
       const data = await response.json();
-      if (data.success) {
+      if (data?.success) {
         setCategories((prevCategories) => [...prevCategories, ...data?.data]);
       }
 

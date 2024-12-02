@@ -7,9 +7,10 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useFoodContext } from "./DataContext";
 
 type CategoryType = {
-  _id?: string;
+  _id: string;
   name: string;
   _v?: number;
 };
@@ -20,7 +21,7 @@ type FilteredItems = {
   image: string;
   ingredient: string;
   name: string;
-  price: number;
+  price: string;
   _id: string;
   quantity?: number;
 };
@@ -33,11 +34,23 @@ type FilteredObject = {
   items: FilteredItems[];
 };
 
+export type CartItemsType = {
+  _id: string;
+  name: string;
+  image: string;
+  ingredient: string;
+  price: string;
+  quantity?: number;
+  count?: number;
+};
+
 type TCategorizedFoods = {
   categorizedFoods: FilteredObject[];
   item?: FilteredItems;
-  cartFoods: FilteredObject[];
-  setCartFoods: React.Dispatch<React.SetStateAction<FilteredObject[]>>;
+  cartFoods: CartItemsType[];
+  totalPrice: number | undefined;
+  setCartFoods: React.Dispatch<React.SetStateAction<CartItemsType[]>>;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number | undefined>>;
   addToCart: (
     _id: string,
     image: string,
@@ -46,6 +59,7 @@ type TCategorizedFoods = {
     price: string,
     quantity: number
   ) => void;
+  calculateTotal: () => void;
 };
 
 const CategorizedFoodsContext = createContext<TCategorizedFoods | undefined>(
@@ -58,7 +72,8 @@ export const CategorizedFoodsProvider: React.FC<{ children: ReactNode }> = ({
   const [categorizedFoods, setCategorizedFoods] = useState<FilteredObject[]>(
     []
   );
-  const [cartFoods, setCartFoods] = useState<FilteredObject[]>([]);
+  const [cartFoods, setCartFoods] = useState<CartItemsType[]>([]);
+  const { setQuantity } = useFoodContext();
 
   const fetchFoods = async () => {
     try {
@@ -76,70 +91,49 @@ export const CategorizedFoodsProvider: React.FC<{ children: ReactNode }> = ({
     image: string,
     name: string,
     ingredient: string,
-    price: any,
+    price: string,
     quantity: number
   ) => {
-    // Convert price to number if it's a string
-    // const priceNum = Number(price);
+    const selectedFood = {
+      _id,
+      image,
+      name,
+      ingredient,
+      price,
+      quantity,
+    };
 
-    // Check if the item already exists in the cart
-    const existingItemIndex = cartFoods.findIndex((item) =>
-      item.items.some((foodItem) => foodItem._id === _id)
-    );
+    const existingFood = cartFoods.find((food) => food._id === _id);
 
-    if (existingItemIndex !== -1) {
-      // If item exists, increment its count
-      const updatedCartFoods = cartFoods.map((cartItem, index) =>
-        index === existingItemIndex
-          ? {
-              ...cartItem,
-              count: (cartItem.count || 0) + 1,
-              items: cartItem.items.map((item) =>
-                item._id === _id
-                  ? { ...item, quantity: (item.quantity || 0) + 1 }
-                  : item
-              ),
-            }
-          : cartItem
-      );
-      setCartFoods(updatedCartFoods);
-    } else {
-      // If item doesn't exist, find its category
-      let foundCategory: CategoryType | undefined;
-      let foundCategoryId = "";
-
-      categorizedFoods.forEach((categoryGroup) => {
-        const matchedItem = categoryGroup.items.find(
-          (item) => item._id === _id
-        );
-        if (matchedItem) {
-          foundCategory = matchedItem.category;
-          foundCategoryId = matchedItem.categoryId;
+    if (existingFood) {
+      const updatedFood = cartFoods.map((food) => {
+        if (food._id === _id) {
+          return {
+            ...food,
+            quantity: food.quantity! + 1,
+          };
         }
+        return food;
       });
-
-      const newCartItem: FilteredObject = {
-        _id,
-        category: foundCategory || { _id: "", name: "Unknown" },
-        categoryId: foundCategoryId,
-        items: [
-          {
-            _id,
-            category: foundCategory || { _id: "", name: "Unknown" },
-            categoryId: foundCategoryId,
-            name,
-            price,
-            image,
-            ingredient,
-            quantity: 1,
-          },
-        ],
-        count: 1,
-      };
-
-      setCartFoods((prevCartFoods) => [...prevCartFoods, newCartItem]);
+      setCartFoods(updatedFood);
+      setQuantity(1);
+    } else {
+      setCartFoods((prevCartFoods) => [...prevCartFoods, selectedFood]);
+      setQuantity(1);
     }
   };
+
+  const [totalPrice, setTotalPrice] = useState<number>();
+
+  const calculateTotal = () => {
+    const total = cartFoods.reduce((acc, current) => {
+      return acc + Number(current.price) * current.quantity!;
+    }, 0);
+    setTotalPrice(total);
+  };
+  useEffect(() => {
+    calculateTotal();
+  }, [cartFoods]);
 
   useEffect(() => {
     fetchFoods();
@@ -150,6 +144,9 @@ export const CategorizedFoodsProvider: React.FC<{ children: ReactNode }> = ({
     cartFoods,
     setCartFoods,
     addToCart,
+    totalPrice,
+    setTotalPrice,
+    calculateTotal,
   };
 
   return (

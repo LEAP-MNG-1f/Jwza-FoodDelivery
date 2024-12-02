@@ -15,22 +15,22 @@ import { BACKEND_ENDPOINT } from "@/constants/constant";
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 
 function Header() {
-  const [foods, setFoods] = useState([]);
+  // const [foods, setFoods] = useState([]);
 
-  const fetchFoods = async () => {
-    try {
-      const response = await fetch(`${BACKEND_ENDPOINT}/api/foods`);
-      const dataFoods = await response.json();
+  // const fetchFoods = async () => {
+  //   try {
+  //     const response = await fetch(`${BACKEND_ENDPOINT}/api/foods`);
+  //     const dataFoods = await response.json();
 
-      setFoods(dataFoods?.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     setFoods(dataFoods?.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchFoods();
-  }, []);
+  // useEffect(() => {
+  //   fetchFoods();
+  // }, []);
   return (
     <AppBar className="!bg-white !h-[57px] !flex !items-center !justify-center !shadow-none !w-full">
       <Container className="!w-[1200px] !flex !items-center !justify-between !p-0">
@@ -62,13 +62,16 @@ function Header() {
             <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
               <SagsIcon />
             </Button>
-            <RightDrawer foods={foods} />
+            <RightDrawer />
           </div>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <PermIdentityIcon sx={{ color: "text.primary" }} />
-            <Typography className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
+            <Link
+              href={"./login"}
+              className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align"
+            >
               Нэвтрэх
-            </Typography>
+            </Link>
           </Button>
         </div>
       </Container>

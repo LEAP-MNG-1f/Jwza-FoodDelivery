@@ -8,6 +8,10 @@ import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
 import { FoodType } from "../ui/Types";
 import { useFoodContext } from "../context/DataContext";
+import {
+  CartItemsType,
+  useCategorizedFoodContext,
+} from "../context/CategorizedFoodsContext";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -18,10 +22,15 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export const FoodCard = ({ _id, image, name, price, ingredient }: FoodType) => {
-  console.log(ingredient);
-
+export const FoodCard = ({
+  _id,
+  image,
+  name,
+  price,
+  ingredient,
+}: CartItemsType) => {
   const { quantity, increaseQuantity, decreaseQuantity } = useFoodContext();
+  const { cartFoods, setCartFoods, addToCart } = useCategorizedFoodContext();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -30,6 +39,12 @@ export const FoodCard = ({ _id, image, name, price, ingredient }: FoodType) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleAddToCart = () => {
+    addToCart(_id, image, name, ingredient, price, quantity);
+    setOpen(false);
+  };
+
   return (
     <div>
       <Button
@@ -100,7 +115,10 @@ export const FoodCard = ({ _id, image, name, price, ingredient }: FoodType) => {
                   <Addicon />
                 </button>
               </div>
-              <button className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center">
+              <button
+                onClick={handleAddToCart}
+                className="w-full h-[48px] bg-[#18BA51] py-2 px-4 text-[16px] font-[400] leading-[19.09px] rounded-[4px] text-white text-center"
+              >
                 Сагслах
               </button>
             </div>

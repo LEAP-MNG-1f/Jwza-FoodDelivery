@@ -2,8 +2,8 @@ export type FoodType = {
   _id?: string;
   name: string;
   image: string;
-  ingredient?: string;
-  price: number;
+  ingredient: string;
+  price: string;
 };
 export type FoodsArrayProps = {
   foods: FoodType[];
@@ -24,9 +24,9 @@ export type FilteredItems = {
   category: CategoryType;
   categoryId: string;
   image: string;
-  ingredient: string;
+  ingredient?: string;
   name: string;
-  price: number;
+  price: string;
   _id: string;
 };
 
@@ -48,7 +48,7 @@ export type TFoods = {
   _id?: string;
   price: string;
   name: string;
-  ingredient: string;
+  ingredient?: string;
   image: string;
   _v?: number;
 };

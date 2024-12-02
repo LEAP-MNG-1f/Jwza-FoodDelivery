@@ -9,14 +9,14 @@ export const FoodHomePage = () => {
   return (
     <div className="w-full flex justify-center mb-[80px]">
       <div className="w-[1200px] flex flex-col gap-[80px]">
-        {categorizedFoods.map((food) => {
+        {categorizedFoods?.map((food) => {
           return (
             <div key={food._id} className="flex flex-col gap-6">
               <div className="flex justify-between items-center">
                 <div className="flex gap-1 items-center">
                   <PlusIcon />
                   <p className="text-[22px] font-[700] leading-[33px]">
-                    {food._id}
+                    {food?._id}
                   </p>
                 </div>
                 <button className="flex gap-1 items-center">
@@ -30,12 +30,12 @@ export const FoodHomePage = () => {
                 {food?.items?.slice(0, 4).map((item) => {
                   return (
                     <FoodCard
-                      key={item._id}
-                      _id={item._id}
-                      image={item.image}
-                      name={item.name}
-                      price={item.price}
-                      ingredient={item.ingredient}
+                      key={item?._id}
+                      _id={item?._id}
+                      image={item?.image}
+                      name={item?.name}
+                      price={item?.price}
+                      ingredient={item?.ingredient}
                     />
                   );
                 })}

@@ -9,7 +9,14 @@ import React, {
   SetStateAction,
 } from "react";
 
-// Define types for your context
+export interface TFoodType {
+  _id?: string;
+  name: string;
+  image: string;
+  ingredient: string;
+  price: string;
+}
+
 export interface CategoryType {
   _id?: string;
   name: string;
@@ -17,7 +24,7 @@ export interface CategoryType {
 }
 
 interface FoodContextType {
-  foods: any[]; // Replace 'any' with your specific food type
+  foods: TFoodType[];
   categories: CategoryType[];
   selectedCategory: string;
   newCategory: string;

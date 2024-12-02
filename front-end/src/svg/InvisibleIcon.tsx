@@ -18,7 +18,7 @@ export const InvisibleIcon = () => {
         <path
           d="M1 1L23 23"
           stroke="black"
-          stroke-width="2"
+          strokeWidth="2"
           stroke-linecap="round"
           stroke-linejoin="round"
         />

@@ -1,7 +1,10 @@
 "use client";
 import * as React from "react";
 import Button from "@mui/material/Button";
+import { useState } from "react";
 import { FoodCard } from "../homepage/FoodCard";
+import { TMenuPage } from "../ui/Types";
+import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
 import { useFoodContext } from "../context/DataContext";
 
 export default function MenuBody() {
@@ -34,11 +37,12 @@ export default function MenuBody() {
           {foods?.map((food) => {
             return (
               <FoodCard
-                key={food._id}
-                image={food.image}
-                name={food.name}
-                price={food.price}
-                ingredient={food.ingredient}
+                key={food?._id}
+                _id={food?._id!}
+                image={food?.image}
+                name={food?.name}
+                price={food?.price}
+                ingredient={food?.ingredient}
               />
             );
           })}

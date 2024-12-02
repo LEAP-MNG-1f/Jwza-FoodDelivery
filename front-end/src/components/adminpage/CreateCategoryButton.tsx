@@ -20,7 +20,9 @@ export default function CreateCategoryButton() {
     setOpen(true);
   };
 
-  const handleClose = () => {};
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const addCategory = async () => {
     try {
@@ -37,8 +39,10 @@ export default function CreateCategoryButton() {
         options
       );
       const data = await response.json();
+
       if (data?.success) {
-        setCategories((prevCategories) => [...prevCategories, ...data?.data]);
+        setCategories((prevCategories) => [...prevCategories, data?.data]);
+        setOpen(false);
       }
 
       setOpen(false);

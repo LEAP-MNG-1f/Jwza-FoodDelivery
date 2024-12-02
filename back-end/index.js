@@ -20,7 +20,7 @@ mongoose.connect(
 server.use(cors());
 server.use("/api", userRouter);
 server.use("/api", foodRouter);
-server.use("api", orderRouter);
+server.use("/api", orderRouter);
 server.use("/api", categoryRouter);
 
 dotenv.config();

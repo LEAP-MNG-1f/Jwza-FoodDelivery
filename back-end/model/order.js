@@ -4,6 +4,10 @@ const processEnum = {
   values: ["Progress", "Delivered", "Waiting", "Active"],
 };
 
+const paymentEnum = {
+  values: ["Card", "Cash"],
+};
+
 const orderSchema = new mongoose.Schema({
   userId: {
     type: mongoose.SchemaTypes.ObjectId,
@@ -47,6 +51,18 @@ const orderSchema = new mongoose.Schema({
   apartment: {
     type: String,
     required: true,
+  },
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  information: {
+    type: String,
+    required: true,
+  },
+  paymentType: {
+    type: String,
+    enum: paymentEnum,
   },
 });
 

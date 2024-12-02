@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { FoodProvider } from "@/components/context/DataContext";
 import { CategorizedFoodsProvider } from "@/components/context/CategorizedFoodsContext";
+import { OrderProvider } from "@/components/context/OrderContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +32,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <FoodProvider>
-          <CategorizedFoodsProvider>{children}</CategorizedFoodsProvider>
+          <CategorizedFoodsProvider>
+            <OrderProvider>{children}</OrderProvider>
+          </CategorizedFoodsProvider>
         </FoodProvider>
       </body>
     </html>

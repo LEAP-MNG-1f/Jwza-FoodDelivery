@@ -1,5 +1,5 @@
-import ConfirmationPage from "@/components/pages/ConfirmationPage";
+import OrderConfirmationPage from "@/components/pages/OrderConfirmationPage";
 
 export default function Home() {
-  return <ConfirmationPage />;
+  return <OrderConfirmationPage />;
 }

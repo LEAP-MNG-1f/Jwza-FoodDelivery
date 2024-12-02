@@ -7,6 +7,7 @@ import { CloseIcon } from "@/svg/CloseIcon";
 import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
 import { useFoodContext } from "../context/DataContext";
+import Link from "next/link";
 
 type Anchor = "right";
 
@@ -97,9 +98,12 @@ export default function RightDrawer() {
                   {totalPrice} ₮
                 </p>
               </div>
-              <button className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center">
+              <Link
+                href={"./confirmation"}
+                className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
+              >
                 Захиалах
-              </button>
+              </Link>
             </div>
           </Drawer>
         </React.Fragment>

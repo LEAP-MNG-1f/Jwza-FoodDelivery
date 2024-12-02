@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
-import { FoodType } from "../ui/Types";
 import { useFoodContext } from "../context/DataContext";
 import {
   CartItemsType,

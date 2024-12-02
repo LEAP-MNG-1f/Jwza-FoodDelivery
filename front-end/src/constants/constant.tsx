@@ -1,4 +1,4 @@
-export const BACKEND_ENDPOINT = "http://localhost:8000";
+export const BACKEND_ENDPOINT = "ttps://jwza-fooddelivery.onrender.com";
 
-//https://jwza-fooddelivery.onrender.com
-//
+//h
+//http://localhost:8000

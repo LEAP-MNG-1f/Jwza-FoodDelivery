@@ -65,7 +65,7 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     fetchOrders();
-  }, [setOrders]);
+  }, []);
 
   const contextValue = {
     orders,

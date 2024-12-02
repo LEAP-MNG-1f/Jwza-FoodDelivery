@@ -1,4 +1,3 @@
-import { useState } from "react";
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import { LeftArrowIcon } from "@/svg/LeftArrowIcon";

@@ -3,6 +3,8 @@ import { LocationIcon } from "@/svg/LocationIcon";
 import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
 import { useFormik } from "formik";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
+import { useOrderContext } from "../context/OrderContext";
+import CheckOutButton from "./CheckOutButton";
 
 type TOrderedFood = {
   userId: string;
@@ -18,6 +20,7 @@ type TOrderedFood = {
 };
 
 export const OrderConfirmation = () => {
+  const { fetchOrders } = useOrderContext();
   const { cartFoods, totalPrice } = useCategorizedFoodContext();
   const foodsIdArray = cartFoods.map((food) => food._id);
 
@@ -48,8 +51,10 @@ export const OrderConfirmation = () => {
           },
           body: JSON.stringify(orderRequestData),
         });
-
         const data = await response.json();
+        if (data?.success) {
+          fetchOrders();
+        }
       } catch (error) {
         console.log(error);
       }
@@ -248,12 +253,13 @@ export const OrderConfirmation = () => {
                   {totalPrice} ₮
                 </p>
               </div>
-              <button
+              {/* <button
                 type="submit"
                 className="w-[187px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#EEEFF2] text-[#1C20243D] px-4 py-2 flex justify-center items-center"
               >
                 Захиалах
-              </button>
+              </button> */}
+              <CheckOutButton />
             </div>
           </div>
         </div>

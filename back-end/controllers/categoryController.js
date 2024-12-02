@@ -33,32 +33,44 @@ const createCategory = async (request, response) => {
 };
 
 const getAllCategory = async (request, response) => {
-  const result = await Category.find();
+  try {
+    const result = await Category.find();
 
-  response.json({
-    success: true,
-    data: result,
-  });
+    response.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 const deleteCategory = async (request, response) => {
-  const result = await Category.findByIdAndRemove({
-    _id: "",
-  });
+  try {
+    const result = await Category.findByIdAndRemove({
+      _id: "",
+    });
 
-  response.json({
-    success: true,
-    data: result,
-  });
+    response.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 const updateCategory = async (request, response) => {
-  const result = await Category.findByIdAndUpdate({
-    _id: "",
-  });
+  try {
+    const result = await Category.findByIdAndUpdate({
+      _id: "",
+    });
 
-  response.json({
-    success: true,
-    data: result,
-  });
+    response.json({
+      success: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export { getAllCategory, createCategory, deleteCategory, updateCategory };

@@ -5,7 +5,7 @@ export const AdminDashboard = () => {
   const { orders } = useOrderContext();
 
   return (
-    <div className="w-full h-[1200px] flex justify-center mt-[89px] bg-[#F7F7F8] ">
+    <div className="w-full h-full flex justify-center mt-[89px] bg-[#F7F7F8] ">
       <div className="w-[1024px]  rounded-xl border border-[#ECEDF0] mt-[30px]">
         <div className="w-[1024px] h-[76px]  bg-white rounded-t-xl">
           <p className="h-[56px] text-[20px]  font-[700] leading-[28px] px-5 pt-6">
@@ -25,7 +25,7 @@ export const AdminDashboard = () => {
           return (
             <div
               key={order?._id}
-              className="flex bg-white  border-b border-b-[#ECEDF0]"
+              className="flex bg-white  border-b border-b-[#ECEDF0] mt-3"
             >
               <div className="flex flex-col gap-1">
                 {order.foodIds.map((foods) => {
@@ -57,7 +57,7 @@ export const AdminDashboard = () => {
                   {order.phoneNumber}
                 </p>
                 <p className="text-[14px] font-[400] leading-[20px] text-[#3F4145]">
-                  Boldoo
+                  {order?.userId?.name}
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export const AdminDashboard = () => {
                     {order?.createdAt}
                   </p>
                 </div>
-                <p className="w-[44px] h-[24px] flex justify-center items-center rounded-xl bg-[#C1E6CF] text-[14px] font-[400] leading-[20px] text-[#0A4E22]">
+                <p className="w-[44px] h-[24px] px-5 py-3 flex justify-center items-center rounded-xl bg-[#C1E6CF] text-[14px] font-[400] leading-[20px] text-[#0A4E22]">
                   {order?.paymentType}
                 </p>
               </div>

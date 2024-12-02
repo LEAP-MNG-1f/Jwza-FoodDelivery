@@ -3,6 +3,8 @@ import { NextIcon } from "@/svg/NextIcon";
 import { FoodCard } from "./FoodCard";
 import { useFoodContext } from "../context/DataContext";
 import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
+import { BACKEND_ENDPOINT } from "@/constants/constant";
+import { useState } from "react";
 
 export const FoodHomePage = () => {
   const { categorizedFoods } = useCategorizedFoodContext();

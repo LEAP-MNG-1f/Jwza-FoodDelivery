@@ -6,6 +6,7 @@ import { useFoodContext } from "../context/DataContext";
 export const AdminMain = () => {
   const { categories, selectedCategory, handleSelectedCategory, foods } =
     useFoodContext();
+  // const { orders } = useOrder;
 
   return (
     <div className="w-full flex justify-center mt-[120px] mb-[300px]">

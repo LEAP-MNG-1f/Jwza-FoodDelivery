@@ -33,7 +33,7 @@ const createOrder = async (request, response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    response.json({ success: false });
   }
 };
 const getAllOrders = async (request, response) => {

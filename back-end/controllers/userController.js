@@ -3,9 +3,9 @@ import { User } from "../model/user.js";
 const createUser = async (request, response) => {
   try {
     const result = await User.create({
-      name: "jwz",
-      email: "jwz@gmail.com",
-      password: "Pass123",
+      name: "dashka",
+      email: "dashka@gmail.com",
+      password: "Dashka123",
       phoneNumber: "99990000",
     });
 

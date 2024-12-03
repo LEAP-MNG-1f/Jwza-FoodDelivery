@@ -6,6 +6,7 @@ import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useOrderContext } from "../context/OrderContext";
 import CheckOutButton from "./CheckOutButton";
 
+
 type TOrderedFood = {
   userId: string;
   orderNumber: number;
@@ -54,12 +55,17 @@ export const OrderConfirmation = () => {
         const data = await response.json();
         if (data?.success) {
           setOrders((prevOrders) => [...prevOrders, data?.data]);
+        } else {
+          alert("Zahialga amjiltgui");
         }
       } catch (error) {
         console.log(error);
       }
     },
   });
+
+  const getInputClass = (value: string) =>
+    value ? "bg-[#18BA51] text-white" : "bg-[#F7F7F8]";
 
   return (
     <form onSubmit={formik.handleSubmit} className="">
@@ -84,13 +90,18 @@ export const OrderConfirmation = () => {
               <p className="text-[14px] font-[400] leading-[16.71px]">
                 Хаяг аа оруулна уу
               </p>
-              <div className="w-[384px] h-[48px] flex gap-2 bg-[#F7F7F8] px-4 py-2 justify-center items-center rounded-1">
+              <div
+                className={`w-[384px] h-[48px] flex gap-2 px-4 py-2 justify-center items-center rounded-1 ${getInputClass(
+                  formik.values.district
+                )} `}
+              >
                 <LocationIcon />
                 <select
                   onChange={formik.handleChange}
-                  className="w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] bg-[#F7F7F8]"
+                  className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
+                    formik.values.district
+                  )} outline-none`}
                   name="district"
-                  id="district"
                   value={formik.values.district}
                 >
                   <option value="">Дүүрэг сонгоно уу</option>
@@ -101,11 +112,17 @@ export const OrderConfirmation = () => {
                   <option value="ЧД">Чингэлтэй дүүрэг</option>
                 </select>
               </div>
-              <div className="w-[384px] h-[48px] flex gap-2 bg-[#F7F7F8] px-4 py-2 justify-center items-center rounded-1">
+              <div
+                className={`w-[384px] h-[48px] flex gap-2 px-4 py-2 justify-center items-center rounded-1 ${getInputClass(
+                  formik.values.khoroo
+                )} `}
+              >
                 <LocationIcon />
                 <select
                   onChange={formik.handleChange}
-                  className="w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] bg-[#F7F7F8]"
+                  className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
+                    formik.values.khoroo
+                  )} outline-none`}
                   name="khoroo"
                   id="khoroo"
                   value={formik.values.khoroo}
@@ -120,11 +137,17 @@ export const OrderConfirmation = () => {
                   <option value="7-r khoroo">7-р хороо</option>
                 </select>
               </div>
-              <div className="w-[384px] h-[48px] flex gap-2 bg-[#F7F7F8] px-4 py-2 justify-center items-center rounded-1">
+              <div
+                className={`w-[384px] h-[48px] flex gap-2 px-4 py-2 justify-center items-center rounded-1 ${getInputClass(
+                  formik.values.apartment
+                )} `}
+              >
                 <LocationIcon />
                 <select
                   onChange={formik.handleChange}
-                  className="w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] bg-[#F7F7F8]"
+                  className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
+                    formik.values.apartment
+                  )} outline-none`}
                   name="apartment"
                   id="apartment"
                   value={formik.values.apartment}

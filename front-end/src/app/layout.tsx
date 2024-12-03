@@ -24,15 +24,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { push } = useRouter();
-  const isAdmin = false;
-  useEffect(() => {
-    if (isAdmin) {
-      push("/admin");
-    } else {
-      push("/");
-    }
-  }, [isAdmin]);
+  // const { push } = useRouter();
+  // const isAdmin = false;
+  // useEffect(() => {
+  //   if (isAdmin) {
+  //     push("/admin");
+  //   } else {
+  //     push("/");
+  //   }
+  // }, [isAdmin]);
   return (
     <html lang="en">
       <body

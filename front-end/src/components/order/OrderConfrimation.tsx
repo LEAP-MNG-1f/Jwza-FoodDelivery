@@ -5,7 +5,8 @@ import { useFormik } from "formik";
 import { BACKEND_ENDPOINT } from "@/constants/constant";
 import { useOrderContext } from "../context/OrderContext";
 import CheckOutButton from "./CheckOutButton";
-
+import { useEffect, useState } from "react";
+import { GreenCircle } from "@/svg/GreenCircle";
 
 type TOrderedFood = {
   userId: string;
@@ -21,9 +22,12 @@ type TOrderedFood = {
 };
 
 export const OrderConfirmation = () => {
-  const { fetchOrders, setOrders } = useOrderContext();
+  const { setOrders } = useOrderContext();
   const { cartFoods, totalPrice } = useCategorizedFoodContext();
   const foodsIdArray = cartFoods.map((food) => food._id);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const formik = useFormik<TOrderedFood>({
     initialValues: {
@@ -38,6 +42,7 @@ export const OrderConfirmation = () => {
       information: "",
       paymentType: "",
     },
+
     onSubmit: async (values) => {
       const orderRequestData = {
         ...values,
@@ -55,8 +60,10 @@ export const OrderConfirmation = () => {
         const data = await response.json();
         if (data?.success) {
           setOrders((prevOrders) => [...prevOrders, data?.data]);
+          setIsOpen(true);
+          setIsSuccess(true);
         } else {
-          alert("Zahialga amjiltgui");
+          alert("Захиалга амжилтгүй боллоо. Мэдээллийг бүрэн оруулна уу");
         }
       } catch (error) {
         console.log(error);
@@ -67,12 +74,33 @@ export const OrderConfirmation = () => {
   const getInputClass = (value: string) =>
     value ? "bg-[#18BA51] text-white" : "bg-[#F7F7F8]";
 
+  useEffect(() => {
+    const isAllFieldsFilled =
+      formik.values.district !== "" &&
+      formik.values.khoroo !== "" &&
+      formik.values.apartment !== "" &&
+      formik.values.information !== "" &&
+      formik.values.phoneNumber !== "" &&
+      formik.values.paymentType !== "";
+
+    if (isAllFieldsFilled) {
+      setIsFilled(true);
+    }
+  }, [
+    formik.values.district,
+    formik.values.khoroo,
+    formik.values.apartment,
+    formik.values.information,
+    formik.values.phoneNumber,
+    formik.values.paymentType,
+  ]);
+
   return (
     <form onSubmit={formik.handleSubmit} className="">
       <div className="w-[1200px] flex justify-between">
         <div className="w-[432px] flex flex-col gap-[15px]">
           <div className="w-full h-[100px] flex gap-4 px-6 py-4">
-            <BlueCircle />
+            {isFilled ? <GreenCircle /> : <BlueCircle />}
             <div className="flex flex-col gap-1">
               <p className="text-[14px] font-[400] leading-[16.71px] text-[#8B8E95]">
                 Алхам 1
@@ -80,8 +108,12 @@ export const OrderConfirmation = () => {
               <p className="text-[20px] font-[400] leading-[23.87px] ">
                 Хаягийн мэдээлэл оруулах
               </p>
-              <p className="text-[16px] font-[400] leading-[19.09px] text-[#0468C8]">
-                Хүлээгдэж байна
+              <p
+                className={`text-[16px] font-[400] leading-[19.09px]  ${
+                  isFilled ? "text-[#18BA51]" : "text-[#0468C8]"
+                }`}
+              >
+                {isFilled ? "Оруулсан" : "Хүлээгдэж байна"}
               </p>
             </div>
           </div>
@@ -95,7 +127,7 @@ export const OrderConfirmation = () => {
                   formik.values.district
                 )} `}
               >
-                <LocationIcon />
+                <LocationIcon color={isFilled} />
                 <select
                   onChange={formik.handleChange}
                   className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
@@ -117,7 +149,7 @@ export const OrderConfirmation = () => {
                   formik.values.khoroo
                 )} `}
               >
-                <LocationIcon />
+                <LocationIcon color={isFilled} />
                 <select
                   onChange={formik.handleChange}
                   className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
@@ -142,7 +174,7 @@ export const OrderConfirmation = () => {
                   formik.values.apartment
                 )} `}
               >
-                <LocationIcon />
+                <LocationIcon color={isFilled} />
                 <select
                   onChange={formik.handleChange}
                   className={`w-[320px] text-[16px] font-[400] leading-[19.09px] text-[#8B8E95] ${getInputClass(
@@ -167,7 +199,7 @@ export const OrderConfirmation = () => {
                   Нэмэлт мэдээлэл
                 </p>
                 <textarea
-                  className="h-[112px] px-4 py-2 text-[#F7F7F8] bg-[#F7F7F8]"
+                  className="h-[112px] px-4 py-2 text-[#333333] bg-[#F7F7F8]"
                   name="information"
                   onChange={formik.handleChange}
                   value={formik.values.information}
@@ -182,7 +214,7 @@ export const OrderConfirmation = () => {
                 <input
                   type="text"
                   placeholder="Утасны дугаараа оруулна уу"
-                  className=" px-4 py-2 text-[#F7F7F8] bg-[#F7F7F8]"
+                  className="px-4 py-2 text-[#333333] bg-[#F7F7F8]"
                   name="phoneNumber"
                   id="phoneNumber"
                   value={formik.values.phoneNumber}
@@ -229,7 +261,7 @@ export const OrderConfirmation = () => {
         </div>
         <div className="w-[432px] flex flex-col  gap-[15px]">
           <div className="w-full h-[100px] flex gap-4 px-6 py-4">
-            <BlueCircle />
+            {isSuccess ? <GreenCircle /> : <BlueCircle />}
             <div className="flex flex-col gap-1">
               <p className="text-[14px] font-[400] leading-[16.71px] text-[#8B8E95]">
                 Алхам 2
@@ -237,8 +269,12 @@ export const OrderConfirmation = () => {
               <p className="text-[20px] font-[400] leading-[23.87px] ">
                 Захиалга баталгаажуулах
               </p>
-              <p className="text-[16px] font-[400] leading-[19.09px] text-[#0468C8]">
-                Хүлээгдэж байна
+              <p
+                className={`text-[16px] font-[400] leading-[19.09px]  ${
+                  isSuccess ? "text-[#18BA51]" : "text-[#0468C8]"
+                }`}
+              >
+                {isSuccess ? "Захиалсан" : "Хүлээгдэж байна"}
               </p>
             </div>
           </div>
@@ -276,13 +312,8 @@ export const OrderConfirmation = () => {
                   {totalPrice} ₮
                 </p>
               </div>
-              {/* <button
-                type="submit"
-                className="w-[187px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#EEEFF2] text-[#1C20243D] px-4 py-2 flex justify-center items-center"
-              >
-                Захиалах
-              </button> */}
-              <CheckOutButton />
+
+              <CheckOutButton open={isOpen} setOpen={setIsOpen} />
             </div>
           </div>
         </div>

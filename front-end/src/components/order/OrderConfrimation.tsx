@@ -20,7 +20,7 @@ type TOrderedFood = {
 };
 
 export const OrderConfirmation = () => {
-  const { fetchOrders } = useOrderContext();
+  const { fetchOrders, setOrders } = useOrderContext();
   const { cartFoods, totalPrice } = useCategorizedFoodContext();
   const foodsIdArray = cartFoods.map((food) => food._id);
 
@@ -53,7 +53,7 @@ export const OrderConfirmation = () => {
         });
         const data = await response.json();
         if (data?.success) {
-          fetchOrders();
+          setOrders((prevOrders) => [...prevOrders, data?.data]);
         }
       } catch (error) {
         console.log(error);

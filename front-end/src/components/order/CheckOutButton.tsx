@@ -7,26 +7,34 @@ import DialogContentText from "@mui/material/DialogContentText";
 import Link from "next/link";
 import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
 
-export default function CheckOutButton() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
+export default function CheckOutButton({
+  open,
+  setOpen,
+}: {
+  open: boolean;
+  setOpen: (_value: boolean) => void;
+}) {
   const handleClose = () => {
     setOpen(false);
     setCartFoods([]);
   };
 
   const { setCartFoods } = useCategorizedFoodContext();
+
   return (
     <div>
       <Button
-        className="!w-[187px] !h-[48px] !rounded-1 !text-[16px] !font-[400] !leading-[19.09px] !bg-[#EEEFF2] !text-[#1C20243D] !px-4 !py-2 !flex !justify-center !items-center !border-none"
+        className="!w-[187px] !h-[48px] !rounded-1 !text-[16px] !font-[400] !leading-[19.09px] !px-4 !py-2 !flex !justify-center !items-center !border-none "
         type="submit"
         variant="outlined"
-        onClick={handleClickOpen}
+        sx={{
+          backgroundColor: "#EEEFF2",
+          color: "#1C20243D",
+          "&:hover": {
+            backgroundColor: "#18BA51",
+            color: "white",
+          },
+        }}
       >
         Захиалах
       </Button>

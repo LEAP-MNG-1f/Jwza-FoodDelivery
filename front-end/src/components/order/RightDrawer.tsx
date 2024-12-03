@@ -7,6 +7,7 @@ import { MinusIcon } from "@/svg/MinusIcon";
 import { Addicon } from "@/svg/AddIcon";
 import { useFoodContext } from "../context/DataContext";
 import Link from "next/link";
+import { SagsIcon } from "@/svg/SagsIcon";
 
 type Anchor = "right";
 
@@ -29,10 +30,13 @@ export default function RightDrawer() {
       {(["right"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <button
-            className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align"
+            className="!flex !justify-center !items-center !text-[14px] gap-2  !leading-[20px] !font-[700] !text-black !text-align"
             onClick={toggleDrawer(anchor, true)}
           >
-            Сагс
+            <div>
+              <SagsIcon />
+            </div>
+            <p className="text-center ">Сагс</p>
           </button>
           <Drawer
             anchor={anchor}
@@ -97,12 +101,25 @@ export default function RightDrawer() {
                   {totalPrice} ₮
                 </p>
               </div>
-              <Link
-                href={"./confirmation"}
-                className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
-              >
-                Захиалах
-              </Link>
+              {cartFoods && cartFoods.length > 0 ? (
+                <Link
+                  href={"./confirmation"}
+                  className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
+                >
+                  Захиалах
+                </Link>
+              ) : (
+                <button
+                  className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
+                  onClick={() =>
+                    alert(
+                      "Таны сагс хоосон байна. Захиалах бүтээгдэхүүнээ сонгоно уу"
+                    )
+                  }
+                >
+                  Захиалах
+                </button>
+              )}
             </div>
           </Drawer>
         </React.Fragment>

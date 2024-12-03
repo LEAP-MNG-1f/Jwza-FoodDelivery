@@ -40,11 +40,10 @@ function Header() {
           </div>
         </div>
         <div className="!flex !gap-2">
-          <div className="flex items-center">
-            <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
-              <SagsIcon />
-            </Button>
-            <RightDrawer />
+          <div className="flex items-center justify-center">
+            <div className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+              <RightDrawer />
+            </div>
           </div>
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <PermIdentityIcon sx={{ color: "text.primary" }} />

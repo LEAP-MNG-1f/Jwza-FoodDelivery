@@ -7,10 +7,12 @@ import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import RightDrawer from "../order/RightDrawer";
 import Link from "next/link";
+import { useOrderContext } from "../context/OrderContext";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 
 function Header() {
+  const { isUser } = useOrderContext();
   return (
     <AppBar className="!bg-white !h-[57px] !flex !items-center !justify-center !shadow-none !w-full">
       <Container className="!w-[1200px] !flex !items-center !justify-between !p-0">
@@ -43,14 +45,14 @@ function Header() {
               <RightDrawer />
             </div>
           </div>
-          <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
+          <Button
+            onClick={isUser}
+            className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2"
+          >
             <PermIdentityIcon sx={{ color: "text.primary" }} />
-            <Link
-              href={"/"}
-              className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align"
-            >
+            <p className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align">
               Нэвтрэх
-            </Link>
+            </p>
           </Button>
         </div>
       </Container>

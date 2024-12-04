@@ -6,8 +6,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import { useOrderContext } from "../context/OrderContext";
 
 export const Login = () => {
+  const { isUser } = useOrderContext();
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
   const [isFilled, setIsFilled] = useState(false);
@@ -22,7 +24,7 @@ export const Login = () => {
     } else if (userRole === "user") {
       router.push("/homepage");
     }
-  }, [userRole, userId]);
+  }, [userRole, userId, isUser]);
   const formik = useFormik({
     initialValues: {
       email: "",

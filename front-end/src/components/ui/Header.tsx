@@ -5,9 +5,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import { SagsIcon } from "@/svg/SagsIcon";
 import RightDrawer from "../order/RightDrawer";
-
 import Link from "next/link";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
@@ -48,7 +46,7 @@ function Header() {
           <Button className="!flex !gap-[8px] !justify-center !items-center !px-4 !py-2">
             <PermIdentityIcon sx={{ color: "text.primary" }} />
             <Link
-              href={"./login"}
+              href={"/"}
               className="!text-[14px] !leading-[20px] !font-[700] !text-black !text-align"
             >
               Нэвтрэх

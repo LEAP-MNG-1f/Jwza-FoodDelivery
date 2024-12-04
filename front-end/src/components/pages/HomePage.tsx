@@ -1,3 +1,4 @@
+"use client";
 import { Footer } from "../ui/Footer";
 import Header from "../ui/Header";
 import { FoodHomePage } from "../homepage/BodyHomePage";

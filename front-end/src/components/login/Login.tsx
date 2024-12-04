@@ -6,12 +6,25 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
-import { toast } from "react-toastify";
+import { useOrderContext } from "../context/OrderContext";
 
 export const Login = () => {
+  const { isUser } = useOrderContext();
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
+  const [isFilled, setIsFilled] = useState(false);
+  const userRole =
+    typeof window !== "undefined" ? localStorage.getItem("userRole") : null;
+  const userId =
+    typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
+  useEffect(() => {
+    if (userRole === "admin" && userId === "674ed25fd4239f3e9c68dd05") {
+      router.push("/admin");
+    } else if (userRole === "user") {
+      router.push("/homepage");
+    }
+  }, [userRole, userId, isUser]);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -26,7 +39,7 @@ export const Login = () => {
     onSubmit: async (values) => {
       setErrorMessage("");
       try {
-        const response = await fetch(`${BACKEND_ENDPOINT}/api/users`, {
+        const response = await fetch(`${BACKEND_ENDPOINT}/api/users/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -35,26 +48,12 @@ export const Login = () => {
         });
 
         const data = await response.json();
-        console.log(response.status);
+        if (data?.success) {
+          const userData = data?.data[0];
 
-        if (response.ok) {
-          toast.success("Login successful!");
           localStorage.setItem("isLoggedIn", "true");
-          router.push("/");
-          return;
-        }
-
-        if (response.status === 400) {
-          toast.warning("Password or email not found");
-          router.push("/");
-        }
-        if (response.status === 401) {
-          toast.warning("Password not match. Try again");
-          router.push("/");
-        } else {
-          setErrorMessage(data.message || "Invalid credentials");
-          toast.error("Please sign up");
-          router.push("/");
+          localStorage.setItem("userId", userData._id);
+          localStorage.setItem("userRole", userData.role);
         }
       } catch (error) {
         setErrorMessage("Network error");
@@ -63,12 +62,13 @@ export const Login = () => {
   });
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("isLoggedIn");
-    // if (isLoggedIn) {
-    //   toast.success("you already login");
-    //   router.push("/dashboard");
-    // }
-  }, [router]);
+    const isAllFieldsFilled =
+      formik.values.email !== "" && formik.values.password !== "";
+
+    if (isAllFieldsFilled) {
+      setIsFilled(true);
+    }
+  }, [formik.values.email, formik.values.password]);
 
   return (
     <div className="w-full flex justify-center mt-[140px] mb-[180px]">
@@ -82,6 +82,7 @@ export const Login = () => {
                 className="px-4 py-2 rounded-[4px] border text-[16px] font-[400] leading-[19.09px] bg-[#F7F7F8]"
                 placeholder="Имэйл хаягаа оруулна уу"
                 type="email"
+                name="email"
                 value={formik.values.email}
                 onChange={formik.handleChange}
               />
@@ -95,6 +96,7 @@ export const Login = () => {
                   className="w-[400px] rounded-[4px]  text-[16px] font-[400] leading-[19.09px] bg-[#F7F7F8]"
                   placeholder="Нууц үг"
                   type="password"
+                  name="password"
                   value={formik.values.password}
                   onChange={formik.handleChange}
                 />
@@ -105,14 +107,18 @@ export const Login = () => {
           <div className="flex flex-col gap-8 w-full items-center">
             <button
               type="submit"
-              className="w-full px-4 py-2 rounded-[4px] text-[16px] font-[400] leading-[19.09px] text-[#1C20243D] bg-[#EEEFF2]"
+              className={`w-full px-4 py-2 rounded-[4px] text-[16px] font-[400] leading-[19.09px] ${
+                isFilled
+                  ? "text-white bg-[#18BA51]"
+                  : "text-[#1C20243D] bg-[#EEEFF2]"
+              } `}
             >
               Нэвтрэх
             </button>
             <p className="text-[14px] font-[400] leading-[16.71px]">Эсвэл</p>
             <Link
               href={"./signup"}
-              className="w-full px-4 py-2 rounded-[4px] text-[16px] font-[400] leading-[19.09px] border border-[#18BA51]"
+              className={`w-full px-4 py-2 rounded-[4px] text-[16px] font-[400] leading-[19.09px] border  border-[#18BA51]`}
             >
               Бүртгүүлэх
             </Link>

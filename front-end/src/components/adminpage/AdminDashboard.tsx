@@ -1,3 +1,4 @@
+"use client";
 import { ThreeDotsIcon } from "@/svg/ThreeDotsIcon";
 import { useOrderContext } from "../context/OrderContext";
 

@@ -10,9 +10,11 @@ import { useCategorizedFoodContext } from "../context/CategorizedFoodsContext";
 export default function CheckOutButton({
   open,
   setOpen,
+  isFilled,
 }: {
   open: boolean;
   setOpen: (_value: boolean) => void;
+  isFilled: boolean;
 }) {
   const handleClose = () => {
     setOpen(false);
@@ -24,17 +26,22 @@ export default function CheckOutButton({
   return (
     <div>
       <Button
-        className="!w-[187px] !h-[48px] !rounded-1 !text-[16px] !font-[400] !leading-[19.09px] !px-4 !py-2 !flex !justify-center !items-center !border-none "
+        className={`!w-[187px] !h-[48px] !rounded-1 !text-[16px] !font-[400] !leading-[19.09px] !px-4 !py-2 !flex !justify-center !items-center !border-none ${
+          isFilled
+            ? "!bg-[#18BA51] !text-white"
+            : "!bg-[#EEEFF2] !text-[#1C20243D]"
+        }`}
         type="submit"
         variant="outlined"
-        sx={{
-          backgroundColor: "#EEEFF2",
-          color: "#1C20243D",
-          "&:hover": {
-            backgroundColor: "#18BA51",
-            color: "white",
-          },
-        }}
+        // sx={{
+        //   backgroundColor: "#EEEFF2",
+        //   color: "#1C20243D",
+        //   "&:hover": {
+        //     backgroundColor: "#18BA51",
+        //     color: "white",
+        //   },
+        // }}
+        disabled={!isFilled}
       >
         Захиалах
       </Button>

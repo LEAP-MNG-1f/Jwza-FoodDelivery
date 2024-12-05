@@ -9,8 +9,8 @@ export default function MenuBody() {
     useFoodContext();
   return (
     <div className="w-full mt-[89px] mb-[32px] flex justify-center ">
-      <div className="w-[1200px] flex flex-col">
-        <div className="flex justify-between">
+      <div className="w-[1200px] flex flex-col justify-between ">
+        <div className="grid grid-cols-4 gap-3">
           {categories.map((category) => {
             return (
               <Button

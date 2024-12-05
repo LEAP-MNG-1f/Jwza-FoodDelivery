@@ -12,8 +12,41 @@ import { SagsIcon } from "@/svg/SagsIcon";
 type Anchor = "right";
 
 export default function RightDrawer() {
-  const { increaseQuantity, decreaseQuantity } = useFoodContext();
-  const { cartFoods, totalPrice } = useCategorizedFoodContext();
+  const { cartFoods, totalPrice, setCartFoods } = useCategorizedFoodContext();
+
+  const updateIncrease = (_id: string) => {
+    const updateFood = cartFoods?.map((food) => {
+      if (food._id === _id) {
+        return {
+          ...food,
+          quantity: food.quantity! + 1,
+        };
+      }
+      return food;
+    });
+    setCartFoods(updateFood);
+  };
+  const updateDecrease = (_id: string) => {
+    const updateFood = cartFoods?.map((food) => {
+      if (food._id === _id && food.quantity! > 0) {
+        return {
+          ...food,
+          quantity: food.quantity! - 1,
+        };
+      }
+      return food;
+    });
+    setCartFoods(updateFood);
+  };
+
+  const deleteFoodFromCard = (_id: string) => {
+    const leftFoods = cartFoods?.filter((food) => {
+      if (food._id !== _id) {
+        return food;
+      }
+    });
+    setCartFoods(leftFoods);
+  };
 
   const [state, setState] = React.useState({
     right: false,
@@ -33,8 +66,15 @@ export default function RightDrawer() {
             className="!flex !justify-center !items-center !text-[14px] gap-2  !leading-[20px] !font-[700] !text-black !text-align"
             onClick={toggleDrawer(anchor, true)}
           >
-            <div>
+            <div className="flex gap-1">
               <SagsIcon />
+              <p
+                className={`${
+                  cartFoods.length === 0 ? "text-white" : "text-black"
+                }`}
+              >
+                {cartFoods.length}
+              </p>
             </div>
             <p className="text-center ">Сагс</p>
           </button>
@@ -67,7 +107,9 @@ export default function RightDrawer() {
                                 {Number(food?.price) * food?.quantity!}₮
                               </p>
                             </div>
-                            <button>
+                            <button
+                              onClick={() => deleteFoodFromCard(food._id)}
+                            >
                               <CloseIcon />
                             </button>
                           </div>
@@ -75,13 +117,13 @@ export default function RightDrawer() {
                             {food?.ingredient}
                           </p>
                           <div className="flex gap-2 items-center ">
-                            <button onClick={decreaseQuantity}>
+                            <button onClick={() => updateDecrease(food._id)}>
                               <MinusIcon />
                             </button>
                             <p className="w-[45px] text-center">
                               {food?.quantity}
                             </p>
-                            <button onClick={increaseQuantity}>
+                            <button onClick={() => updateIncrease(food._id)}>
                               <Addicon />
                             </button>
                           </div>
@@ -101,25 +143,17 @@ export default function RightDrawer() {
                   {totalPrice} ₮
                 </p>
               </div>
-              {cartFoods && cartFoods.length > 0 ? (
-                <Link
-                  href={"./confirmation"}
-                  className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
-                >
-                  Захиалах
-                </Link>
-              ) : (
-                <button
-                  className="w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] bg-[#18BA51] text-white px-4 py-2 flex justify-center items-center"
-                  onClick={() =>
-                    alert(
-                      "Таны сагс хоосон байна. Захиалах бүтээгдэхүүнээ сонгоно уу"
-                    )
-                  }
-                >
-                  Захиалах
-                </button>
-              )}
+
+              <Link
+                href={cartFoods?.length > 0 ? "/confirmation" : "#"} // Link only works if cart is not empty
+                className={`w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] px-4 py-2 flex justify-center items-center ${
+                  cartFoods.length === 0
+                    ? "bg-[#1C20243D] text-[#EEEFF2] cursor-not-allowed"
+                    : "bg-[#18BA51] text-white"
+                }`}
+              >
+                Захиалах
+              </Link>
             </div>
           </Drawer>
         </React.Fragment>

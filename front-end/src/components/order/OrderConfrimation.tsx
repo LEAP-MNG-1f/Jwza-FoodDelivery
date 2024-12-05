@@ -313,7 +313,11 @@ export const OrderConfirmation = () => {
                 </p>
               </div>
 
-              <CheckOutButton open={isOpen} setOpen={setIsOpen} />
+              <CheckOutButton
+                open={isOpen}
+                setOpen={setIsOpen}
+                isFilled={isFilled}
+              />
             </div>
           </div>
         </div>

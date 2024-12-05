@@ -13,18 +13,18 @@ export const Login = () => {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
   const [isFilled, setIsFilled] = useState(false);
-  const userRole =
-    typeof window !== "undefined" ? localStorage.getItem("userRole") : null;
-  const userId =
-    typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+  // const userRole =
+  //   typeof window !== "undefined" ? localStorage.getItem("userRole") : null;
+  // const userId =
+  //   typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
-  useEffect(() => {
-    if (userRole === "admin" && userId === "674ed25fd4239f3e9c68dd05") {
-      router.push("/admin");
-    } else if (userRole === "user") {
-      router.push("/homepage");
-    }
-  }, [userRole, userId, isUser]);
+  // useEffect(() => {
+  //   if (userRole === "admin" && userId === "674ed25fd4239f3e9c68dd05") {
+  //     router.push("/admin");
+  //   } else if (userRole === "user") {
+  //     router.push("/homepage");
+  //   }
+  // }, [userRole, userId, isUser]);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -51,9 +51,9 @@ export const Login = () => {
         if (data?.success) {
           const userData = data?.data[0];
 
-          localStorage.setItem("isLoggedIn", "true");
-          localStorage.setItem("userId", userData._id);
-          localStorage.setItem("userRole", userData.role);
+          // localStorage.setItem("isLoggedIn", "true");
+          // localStorage.setItem("userId", userData._id);
+          // localStorage.setItem("userRole", userData.role);
         }
       } catch (error) {
         setErrorMessage("Network error");

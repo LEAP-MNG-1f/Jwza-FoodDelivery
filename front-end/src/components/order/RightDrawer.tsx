@@ -145,7 +145,7 @@ export default function RightDrawer() {
               </div>
 
               <Link
-                href={cartFoods?.length > 0 ? "/confirmation" : "#"} // Link only works if cart is not empty
+                href={cartFoods?.length > 0 ? "/login" : "#"} // Link only works if cart is not empty
                 className={`w-[256px] h-[48px] rounded-1 text-[16px] font-[400] leading-[19.09px] px-4 py-2 flex justify-center items-center ${
                   cartFoods.length === 0
                     ? "bg-[#1C20243D] text-[#EEEFF2] cursor-not-allowed"

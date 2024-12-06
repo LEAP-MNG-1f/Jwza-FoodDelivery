@@ -24,15 +24,20 @@ type TOrderedFood = {
 export const OrderConfirmation = () => {
   const { setOrders } = useOrderContext();
   const { cartFoods, totalPrice } = useCategorizedFoodContext();
-  const foodsIdArray = cartFoods.map((food) => food._id);
   const [isOpen, setIsOpen] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const foodsIdArray = cartFoods.map((food) => food._id);
+
+  const loginUserId =
+    typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+  console.log(loginUserId);
+
   const formik = useFormik<TOrderedFood>({
     initialValues: {
-      userId: "67440454c319bee366fabc3f",
-      orderNumber: Math.floor(Math.random() * 10),
+      userId: loginUserId || ``,
+      orderNumber: Math.floor(Math.random() * 10000),
       foodIds: foodsIdArray,
       totalPrice: "",
       district: "",

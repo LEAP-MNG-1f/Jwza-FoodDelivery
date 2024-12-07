@@ -48,13 +48,13 @@ export const AdminMain = () => {
             </p>
             <CreateFoodButton />
           </div>
-          <div className="grid grid-cols-3 justify-between">
+          <div className="grid grid-cols-3 justify-between gap-4">
             {foods?.map((food) => {
               return (
                 <div key={food?._id} className="relative w-[282px]">
-                  <button className=" w-[166px] h-[40px] px-16 py-2 rounded-[100px] text-[20px] font-[590] leading-[23.87px] bg-white right-[58px] top-[73px]">
+                  {/* <button className=" w-[166px] h-[40px] px-16 py-2 rounded-[100px] text-[20px] font-[590] leading-[23.87px] bg-white right-[58px] top-[73px]">
                     Edit
-                  </button>
+                  </button> */}
                   <button className=" w-[282px] h-[256px] flex flex-col gap-[14px] border-none items-start">
                     <img
                       className="!w-[282px] !h-[186px] !rounded-[16px]"

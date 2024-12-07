@@ -11,11 +11,11 @@ import bodyParser from "body-parser";
 
 const server = express();
 const PORT = 8000;
+dotenv.config();
+
 server.use(bodyParser.json());
 
-mongoose.connect(
-  "mongodb+srv://jnglobal444:Qttp2eUlSQhDPg2C@leap-jwz.puuzf.mongodb.net/food-delivery"
-);
+mongoose.connect(process.env.MONGODB_API);
 
 server.use(cors());
 server.use("/api", userRouter);

@@ -21,13 +21,20 @@ export const Login = () => {
   const isLoggedIn =
     typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
-  // useEffect(() => {
-  //   if (userRole === "admin" && userId === "674ed25fd4239f3e9c68dd05") {
-  //     router.push("/admin");
-  //   } else if (userRole === "user") {
-  //     router.push("/homepage");
-  //   }
-  // }, [userRole, userId, isUser]);
+  useEffect(() => {
+    // if (userRole === "admin" && userId === "674ed25fd4239f3e9c68dd05") {
+    //   router.push("/admin");
+    // } else if (userRole === "user") {
+    //   router.push("/homepage");
+    // }
+    if (isLoggedIn && userRole) {
+      if (userRole === "admin") {
+        router.push("/admin");
+      } else {
+        router.push("/confirmation");
+      }
+    }
+  }, [userRole, userId, router]);
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -52,9 +59,15 @@ export const Login = () => {
 
         const data = await response.json();
         if (data?.success) {
-          router.push("./confirmation");
-
           const userData = data?.data[0];
+          if (
+            userData._id === "674ed25fd4239f3e9c68dd05" &&
+            userData.userRole === "admin"
+          ) {
+            router.push("/admin");
+          } else {
+            router.push("/confirmation");
+          }
 
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("userId", userData._id);

@@ -7,7 +7,6 @@ import { LogoIcon } from "@/svg/LogoIcon";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import RightDrawer from "../order/RightDrawer";
 import Link from "next/link";
-import { useOrderContext } from "../context/OrderContext";
 
 const pages = ["Нүүр", "Хоолны цэс", "Хүргэлтийн бүс"];
 

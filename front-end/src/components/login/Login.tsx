@@ -9,13 +9,16 @@ import * as Yup from "yup";
 import { useOrderContext } from "../context/OrderContext";
 
 export const Login = () => {
-  const { isUser } = useOrderContext();
+  // const { isUser } = useOrderContext();
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState("");
   const [isFilled, setIsFilled] = useState(false);
   const userRole =
     typeof window !== "undefined" ? localStorage.getItem("userRole") : null;
   const userId =
+    typeof window !== "undefined" ? localStorage.getItem("userId") : null;
+
+  const isLoggedIn =
     typeof window !== "undefined" ? localStorage.getItem("userId") : null;
 
   // useEffect(() => {
@@ -53,9 +56,9 @@ export const Login = () => {
 
           const userData = data?.data[0];
 
-          // localStorage.setItem("isLoggedIn", "true");
+          localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("userId", userData._id);
-          // localStorage.setItem("userRole", userData.role);
+          localStorage.setItem("userRole", userData.role);
         }
       } catch (error) {
         setErrorMessage("Network error");

@@ -45,7 +45,7 @@ type TOrderContext = {
   orders: TOrder[];
   setOrders: React.Dispatch<React.SetStateAction<TOrder[]>>;
   fetchOrders: () => void;
-  isUser: () => void;
+  // isUser: () => void;
 };
 
 const OrderContext = createContext<TOrderContext | undefined>(undefined);
@@ -54,15 +54,15 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [orders, setOrders] = useState<any[]>([]);
-  const router = useRouter();
+  // const router = useRouter();
 
-  const isUser = () => {
-    const role = localStorage.getItem("userRole");
-    if (role) {
-      localStorage.clear();
-      router.push("./");
-    }
-  };
+  // const isUser = () => {
+  //   const role = localStorage.getItem("userRole");
+  //   if (role) {
+  //     localStorage.clear();
+  //     router.push("./");
+  //   }
+  // };
 
   const fetchOrders = async () => {
     try {
@@ -82,7 +82,7 @@ export const OrderProvider: React.FC<{ children: ReactNode }> = ({
     orders,
     setOrders,
     fetchOrders,
-    isUser,
+    // isUser,
   };
 
   return (

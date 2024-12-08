@@ -10,7 +10,7 @@ import categoryRouter from "./routes/categoryRoute.js";
 import bodyParser from "body-parser";
 
 const server = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 dotenv.config();
 
 server.use(bodyParser.json());

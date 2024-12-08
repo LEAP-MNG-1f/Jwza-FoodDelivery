@@ -10,7 +10,7 @@ import categoryRouter from "./routes/categoryRoute.js";
 import bodyParser from "body-parser";
 
 const server = express();
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 dotenv.config();
 
 server.use(bodyParser.json());
@@ -22,8 +22,6 @@ server.use("/api", userRouter);
 server.use("/api", foodRouter);
 server.use("/api", orderRouter);
 server.use("/api", categoryRouter);
-
-dotenv.config();
 
 // server.post(`/assets`, async (request, response) => {
 //   try {

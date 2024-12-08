@@ -8,10 +8,11 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
+import { useFoodContext } from "../context/DataContext";
 
 export default function CreateFoodButton() {
   const [open, setOpen] = useState(false);
-
+  const { categories } = useFoodContext();
   const handleClickOpen = () => {
     setOpen(true);
   };

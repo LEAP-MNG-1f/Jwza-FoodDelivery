@@ -15,7 +15,7 @@ const PORT = 8000;
 
 server.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGODB_API);
+// mongoose.connect(process.env.MONGODB_API);
 mongoose.connect(
   "mongodb+srv://jnglobal444:Qttp2eUlSQhDPg2C@leap-jwz.puuzf.mongodb.net/food-delivery"
 );
